@@ -11,21 +11,51 @@ class Background_1 extends React.Component {
         }
     }
 
-    render(){
-        return (
-            <View>
-                <Text style={styles.text}>{this.state.text} Background_1 component</Text>
-            </View>
-        )
+    render()
+    {
+      return ( 
+        <View style={styles.container}>
+         
+          <View style={styles.Circle1} />
+          <View style = {styles.Circle2} />        
+        </View>
+  
+      );
     }
+    
 }
 
 const styles = StyleSheet.create({
-    text: {
-      backgroundColor: "blue",
-      color: "white",
-      fontSize: 20
-    },
+    container: {
+        flex: 2,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#E4d5E5",
+      },
+      Circle1: {
+        position: 'absolute',
+        left: 41,
+       
+        top : -100,
+        width: 165,
+        height: 165,
+        left:10,
+        borderRadius: 82.4,
+        backgroundColor: '#9D69FA',
+        opacity: 0.7
+      },
+      Circle2: {
+        position: 'absolute',
+        left: 41,
+       
+        top : -40,
+        width: 165,
+        height: 165,
+        left:-50,
+        borderRadius: 82.4,
+        backgroundColor: '#9D69FA',
+        opacity: 0.7
+      }
 });
 
 export default Background_1
