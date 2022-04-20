@@ -24,7 +24,6 @@ class Background_1 extends React.Component {
     }
     
 }
-
 const styles = StyleSheet.create({
     container: {
         flex: 2,
@@ -58,4 +57,4 @@ const styles = StyleSheet.create({
       }
 });
 
-export default Background_1
+export {Background_1}
