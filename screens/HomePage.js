@@ -14,7 +14,7 @@ class HomePage extends Component {
     render() {
       return (
         <View style = {{ 
-          backgroundColor: "#E5d5E6"
+          backgroundColor: "#E5d5E6" 
         }}>
           
         

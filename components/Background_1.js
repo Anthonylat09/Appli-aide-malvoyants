@@ -16,7 +16,7 @@ class Background_1 extends React.Component {
       return ( 
         <View style={styles.container}>
          
-          <View style={styles.Circle1} />
+          <View color ='#9D69FA' style={styles.Circle1} />
           <View style = {styles.Circle2} />        
         </View>
   
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         height: 165,
         left:10,
         borderRadius: 82.4,
-        color: '#9D69FA',
+        backgroundColor: '#9D69FA',
         opacity: 0.7
       },
       Circle2: {
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         height: 165,
         left:-50,
         borderRadius: 82.4,
-        color: '#9D69FA',
+        backgroundColor: '#9D69FA',
         opacity: 0.7
       }
 });
