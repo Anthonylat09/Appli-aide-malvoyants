@@ -26,10 +26,10 @@ class Background_1 extends React.Component {
 }
 const styles = StyleSheet.create({
     container: {
-        flex: 2,
+        flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#E4d5E5",
+        backgroundColor: "#E5d5E6",
       },
       Circle1: {
         position: 'absolute',
@@ -40,21 +40,18 @@ const styles = StyleSheet.create({
         height: 165,
         left:10,
         borderRadius: 82.4,
-        backgroundColor: '#9D69FA',
+        color: '#9D69FA',
         opacity: 0.7
       },
       Circle2: {
-        position: 'absolute',
-        left: 41,
-       
+        position: 'absolute',       
         top : -40,
         width: 165,
         height: 165,
         left:-50,
         borderRadius: 82.4,
-        backgroundColor: '#9D69FA',
+        color: '#9D69FA',
         opacity: 0.7
       }
 });
-
 export {Background_1}
