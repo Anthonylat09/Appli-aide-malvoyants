@@ -27,10 +27,10 @@ class Background_1 extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 2,
+        flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#E4d5E5",
+        backgroundColor: "#E5d5E6",
       },
       Circle1: {
         position: 'absolute',
@@ -45,9 +45,7 @@ const styles = StyleSheet.create({
         opacity: 0.7
       },
       Circle2: {
-        position: 'absolute',
-        left: 41,
-       
+        position: 'absolute',       
         top : -40,
         width: 165,
         height: 165,
@@ -58,4 +56,4 @@ const styles = StyleSheet.create({
       }
 });
 
-export default Background_1
+export {Background_1} 

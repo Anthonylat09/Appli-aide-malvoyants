@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button,Image } from 'react-native';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { color } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
-import {Background_1} from '.components/Background_1'
-class WelcomePage extends Component {
+import {Background_1} from '../components/Background_1'
+class HomePage extends Component {
     constructor(props)
     {
       super(props)
@@ -13,38 +11,44 @@ class WelcomePage extends Component {
       }
     } 
  
-   render() {
-     return (
-       <> <Background_1/>
-       <View style={styles.container}>
+    render() {
+      return (
+        <View style = {{ 
+          backgroundColor: "#E5d5E6"
+        }}>
+          
+        
+
          <Text style={styles.headerText}>{this.state.Headertext }</Text>
-         <Text style = {styles.bottomText} > {this.state.BottomText } </Text>
-         <View style = {styles.Commencer}/>
-         <View style = {{ position:'absolute',
-                          width:319,
-                          height:41,
-                          left:36,
-                          top:733,
-                          backgroundColor: '#240071F5',
-                          borderRadius: 10}}>
-           <Button title = "Commencer"  />
-         </View>
-         
-         <Image style = {styles.Eye} source= {require ("/home/issa/DEV-MOBILE-PROJECT/assets/eye.png")}/>
-         
-         
- 
-       </View> </> 
-     );
-   }
- }
+        <Text style = {styles.bottomText} > {this.state.BottomText } </Text>
+        <View style = {{ position:'absolute',
+                         width:319,
+                         height:41,
+                         left:36,
+                         top:733,
+                         backgroundColor: '#240071F5',
+                         borderRadius: 10}}>
+          <Button color = "#fff" title = "Commencer"  />
+          </View>
+         <Background_1/>
+        
+        
+        
+        
+      
+        
+        
+
+      </View>
+    );
+  }
+}
 
  const styles = StyleSheet.create({
     container: {
       flex: 2,
       justifyContent: "center",
       alignItems: "center",
-      backgroundColor: "#E4d5E5",
     },
     headerText: {
       position: 'absolute',
@@ -84,4 +88,4 @@ class WelcomePage extends Component {
     },
   
   });
-  
+  export {HomePage}
