@@ -22,7 +22,7 @@ class ChoicesPage extends Component
         </View>
         
     </>
-    );
+    );   
   }
 }
 
