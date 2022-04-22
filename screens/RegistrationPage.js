@@ -4,6 +4,7 @@ import { ScrollView, TextInput, } from 'react-native-gesture-handler';
 import {Background_1} from '../components/Background_1'
 import {Card, Provider as PaperProvider} from 'react-native-paper'
 import { SafeAreaView } from 'react-navigation';
+import eye from '../assets/eye.png'
 let IMAGE_HEIGHT = 0
 let IMAGE_HEIGHT_SMALL = 0
 class Registration extends Component {
@@ -25,7 +26,7 @@ class Registration extends Component {
          
 
     } 
-    componentWillMount () {
+    UNSAFE_componentWillMount () {
       this.keyboardWillShowSub = Keyboard.addListener('keyboardWillShow', this.keyboardWillShow);
       this.keyboardWillHideSub = Keyboard.addListener('keyboardWillHide', this.keyboardWillHide);
     }
@@ -56,7 +57,7 @@ class Registration extends Component {
       Animated.parallel([
         Animated.timing(this.keyboardHeight, {
           duration: event.duration,
-          toValue: 0,
+          toValue: 2,
           useNativeDriver: true 
 
         }),
@@ -88,7 +89,7 @@ class Registration extends Component {
         <> 
                 <Background_1/>
 
-        <Animated.View 
+        <KeyboardAvoidingView
         style = {{position: 'absolute',
         width:"80%",
         height:"40%",
@@ -106,9 +107,9 @@ class Registration extends Component {
         automaticallyAdjustContentInsets = {true}
         alwaysBounceVertical = {true}
         >
-
+        <Animated.Image source={eye} style ={styles.Eye}/>
         
-        <SafeAreaView top ="25.42%" > 
+        <SafeAreaView top ="-47.42%" > 
       <Card>
           <Card.Content> 
             <TextInput
@@ -123,7 +124,7 @@ class Registration extends Component {
         </Card>
         
         </SafeAreaView>
-        <SafeAreaView  top="36.42%" > 
+        <SafeAreaView  top="-36.42%" > 
       <Card>
           <Card.Content> 
             <TextInput
@@ -139,7 +140,7 @@ class Registration extends Component {
         </Card>
         
         </SafeAreaView>
-        <SafeAreaView top = "47.42%" > 
+        <SafeAreaView top = "-25.42%" > 
       <Card>
           <Card.Content> 
             <TextInput
@@ -161,7 +162,7 @@ class Registration extends Component {
         </Card>
         
         </SafeAreaView>
-        <SafeAreaView top = "58.42%" > 
+        <SafeAreaView top = "-12.42%" > 
       <Card>
           <Card.Content> 
             <TextInput
@@ -179,8 +180,21 @@ class Registration extends Component {
         </Card>
         
         </SafeAreaView>
+        <SafeAreaView style = {{ position:'absolute',
+                width:250,
+                height:41,
+                left:"8%",
+                top:"120%",    
+                backgroundColor: '#240071F5',
+                borderRadius: 10}}>
+                <Button color = "#fff" title = "Inscription" onPress = {() => this.props.navigation.navigate('Choices')} /> 
+                </SafeAreaView> 
+                <SafeAreaView style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', top:"25%"}}> 
+                <Text top =" 14%"left = "45%">Deja inscrit?</Text>
+                <Button  right="45%" title = "Connectez-vous"></Button>
+                </SafeAreaView>
         
-        </Animated.View>
+        </KeyboardAvoidingView>
         
         </>
         
@@ -198,45 +212,15 @@ class Registration extends Component {
 export {Registration}
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between'
     },
-    headerText: {
-      position: 'absolute',
-      width:325,
-      height:165,
-      left:33,
-      top:125,
-      fontStyle: 'normal',
-      fontSize: 32,
-      textAlign: "center",
-      fontWeight: "bold",
-      textAlign: 'center',
-      lineHeight: 48
-    }, 
-    bottomText: {
-      position: 'absolute',
-      width:332,
-      height:175,
-      left:32,
-      top:475,
-      fontStyle: 'normal',
-      fontWeight:700,
-      width:320, 
-      fontSize: 23,
-      textAlign: "center",
-      fontWeight: "bold",
-      lineHeight:36,
-      textAlign: 'center'
-      
-      
-    },
+   
     Eye: {
-      width: 150,
-      height: 150,
-      resizeMode: 'stretch',
-      top: -30,
+      width: "50%",
+      height: "45%",
+      top: "-56%",
+      left:"22%",
     },
     title: {
     fontSize: 24,
@@ -246,4 +230,4 @@ const styles = StyleSheet.create({
     paddingBottom: 24
   }
   
-  });
+  })
