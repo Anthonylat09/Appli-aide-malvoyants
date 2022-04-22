@@ -170,7 +170,7 @@ class Registration extends Component {
             placeholder="confimer mot de passe"
             placeholderTextColor="#003f5c"
             onChangeText={(text) => this.setState({confirmerPassword:text})}
-            autoCorrect = {true}
+            secureTextEntry={this.state.passwordVisibility}
             rightIcon={this.state.rightIcon}
 
             />
