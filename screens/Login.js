@@ -5,13 +5,13 @@ import {Background_1} from '../components/Background_1'
 import {Card, Provider as PaperProvider} from 'react-native-paper'
 import { SafeAreaView } from 'react-navigation';
 import LoginImg from '../assets/LoginImg.png'
-let IMAGE_HEIGHT = 193
+let IMAGE_HEIGHT = 193   
 let IMAGE_HEIGHT_SMALL = 190.6
-class Login extends Component {
+class Login extends Component {   
     constructor(props)
     {
       super(props)
-      this.keyboardHeight = new Animated.Value(0);
+      this.keyboardHeight = new Animated.Value(0);  
       this.imageHeight = new Animated.Value(IMAGE_HEIGHT);
       this.state = {
         firstname:"",
@@ -203,4 +203,4 @@ const styles = StyleSheet.create({
 
   }
   
-  })
+  })   
