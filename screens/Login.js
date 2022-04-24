@@ -159,7 +159,7 @@ class Login extends Component {
                 borderRadius: 10}}>
                 <Button color = "#fff" title = "se connecter" onPress = {() => this.props.navigation.navigate('Choices')} /> 
                 </SafeAreaView> 
-                <SafeAreaView style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', top:"43%"}}> 
+                <SafeAreaView style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', top:"48%"}}> 
                 <Text top =" 20%"left = "45%">Nouveau ici?</Text>
                 <Button  right="45%" title = "Inscription"></Button>
                 </SafeAreaView>
