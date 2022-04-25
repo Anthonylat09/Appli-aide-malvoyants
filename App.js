@@ -6,11 +6,15 @@ import {HomePage,App2} from './screens/HomePage'
 import {ChoicesPage}  from './screens/ChoicesPage'
 import { NavigationContainer } from '@react-navigation/native';
 import { Login } from './screens/Login';
+import { Background_2 } from './components/Background_2';
+import { Registration } from './screens/RegistrationPage';
 let log = Login
 let back = Background_1
 let HP = HomePage
+let reg = Registration
 let choice = ChoicesPage
-export  default class App extends React.Component {
+let back2 = Background_2
+export default  class App extends React.Component {
   render() {
   return <NavigationContainer> 
   <MyStack/>
@@ -31,8 +35,11 @@ const MyStack = () =>
      
 
       <Stack.Screen name = "Login" component = {log}/>
+
+      <Stack.Screen name = "Sign Up" component = {reg}/>
+
     </Stack.Navigator>
-  )
+  ) 
 }
 
 const styles = StyleSheet.create({

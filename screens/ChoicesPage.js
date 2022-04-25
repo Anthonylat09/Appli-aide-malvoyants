@@ -18,7 +18,7 @@ class ChoicesPage extends Component
     return ( 
       <><Background_1 />
         <View style = {styles.choix1}>
-        <Button color ="#fff" title= {this.state.BottomText}/>
+        <Button color ="#fff" title= {this.state.BottomText} onPress = {() => this.props.navigation.navigate('Login')}/>
         </View>
         
     </>

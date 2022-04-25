@@ -191,7 +191,7 @@ class Registration extends Component {
                 </SafeAreaView> 
                 <SafeAreaView style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', top:"25%"}}> 
                 <Text top =" 14%"left = "45%">Deja inscrit?</Text>
-                <Button  right="45%" title = "Connectez-vous"></Button>
+                <Button  right="45%" title = "Connectez-vous" onPress = {() => this.props.navigation.navigate('Login')}></Button>
                 </SafeAreaView>
         
         </KeyboardAvoidingView>
