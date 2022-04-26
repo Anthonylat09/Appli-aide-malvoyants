@@ -4,6 +4,7 @@ import { ScrollView, TextInput, } from 'react-native-gesture-handler';
 import {Background_1} from '../components/Background_1'
 import {Card, Provider as PaperProvider} from 'react-native-paper'
 import { SafeAreaView } from 'react-navigation';
+import { handleSignUp } from "../services/Firebase";
 import eye from '../assets/eye.png'
 let IMAGE_HEIGHT = 0
 let IMAGE_HEIGHT_SMALL = 0
@@ -17,6 +18,7 @@ class Registration extends Component {
         firstname:"",
         lastName:"",
         password:"",
+        email:"",
         confirmedPassword:"",
         passwordVisibility:true,
         rightIcon:'eye'
@@ -80,8 +82,33 @@ class Registration extends Component {
           setPasswordVisibility(!passwordVisibility);
         }
       };
+      // handles email input
+      
+      const handleEmailChange = (text) => 
+      {
+        this.setState({email:text})
+      } 
 
+      //handles password input 
+      const handlePasswordChange = (text) => 
+      {
+        this.setState({password:text})
+      } 
+      //Handles sign up
+      const handleSubmit = async () => {
 
+        if (this.state.email === "" && this.state.password !== this.state.confirmedPassword && this.state.password === "" && this.state.confirmedPassword === "") {
+          console.error("Invalid Credentials");
+        } else {
+          try {
+            await handleSignUp(this.state.email, this.state.password);
+            this.props.navigation.navigate('Login');
+
+          } catch (error) {
+            console.error(error);
+          }
+        }
+      };
 
       return (
         
@@ -129,9 +156,14 @@ class Registration extends Component {
           <Card.Content> 
             <TextInput
             
-            placeholder="Nom"
+            
             placeholderTextColor="#003f5c"
-            onChangeText={(text) => this.setState({lastName:text})}
+            defaultValue={this.state.email}
+            onChangeText={handleEmailChange}
+            textContentType="emailAddress"
+            placeholder="Email Address"
+            keyboardType="email-address"
+            returnKeyType="next"
 
             />
           </Card.Content>
@@ -187,7 +219,7 @@ class Registration extends Component {
                 top:"120%",    
                 backgroundColor: '#240071F5',
                 borderRadius: 10}}>
-                <Button color = "#fff" title = "Inscription" onPress = {() => this.props.navigation.navigate('Choices')} /> 
+                <Button color = "#fff" title = "Inscription" onPress = {handleSubmit} /> 
                 </SafeAreaView> 
                 <SafeAreaView style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', top:"25%"}}> 
                 <Text top =" 14%"left = "45%">Deja inscrit?</Text>
