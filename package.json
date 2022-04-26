@@ -1,7 +1,7 @@
 {
   "name": "dev-mobile-project",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.js",  
   "scripts": {
     "start": "expo start --dev-client",
     "android": "expo run:android",
@@ -28,4 +28,4 @@
     "@types/react-native": "^0.67.6"
   },
   "private": true
-}
+}      

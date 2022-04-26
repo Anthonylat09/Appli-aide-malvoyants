@@ -11,7 +11,7 @@ class Background_1 extends React.Component {
         }
     }
 
-    render()
+    render()  
     {
       return ( 
         <View style={styles.container}>

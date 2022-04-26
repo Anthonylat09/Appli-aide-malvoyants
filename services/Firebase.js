@@ -19,7 +19,7 @@ const firebaseConfig = {
   appId: "1:567348985086:web:9fa7494dd19b52e71839af",
   measurementId: "G-N7749PHGR8"
 };
-
+  
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
@@ -45,4 +45,4 @@ export const handleSignIn = async (email, password) => {
       .catch((error) => {
         console.error(error);
       });
-  };
+  };  
