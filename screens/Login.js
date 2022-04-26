@@ -3,8 +3,9 @@ import { StyleSheet, Text, View, Button,Image, KeyboardAvoidingView,Animated,Key
 import { ScrollView, TextInput, } from 'react-native-gesture-handler';
 import {Background_1} from '../components/Background_1'
 import {Card, Provider as PaperProvider} from 'react-native-paper'
-import { SafeAreaView } from 'react-navigation';
+import { SafeAreaView } from 'react-navigation'
 import LoginImg from '../assets/LoginImg.png'
+import { handleSignIn } from "../services/Firebase";
 let IMAGE_HEIGHT = 193   
 let IMAGE_HEIGHT_SMALL = 190.6
 class Login extends Component {   
@@ -17,6 +18,7 @@ class Login extends Component {
         firstname:"",
         lastName:"",
         password:"",
+        email:"",
         confirmedPassword:"",
         passwordVisibility:true,
         rightIcon:'eye'
@@ -80,9 +82,24 @@ class Login extends Component {
           setPasswordVisibility(!passwordVisibility);
         }
       };
-
-
-
+      
+ 
+        //Handles sign  in
+     const handleSubmit = async () => {
+        if (email === "" || password === "") {
+          console.error("Invalid Credentials");
+        } else {
+       try {
+        await handleSignIn(email, password);
+       } catch (error) {
+        console.error(error);
+       }
+       }
+      }; 
+      const handleEmailChange = (text) => 
+      {
+        this.setState({email:text})
+      } 
       return (
         
           
@@ -116,9 +133,13 @@ class Login extends Component {
           <Card.Content> 
             <TextInput
             
-            placeholder="Nom"
             placeholderTextColor="#003f5c"
-            onChangeText={(text) => this.setState({lastName:text})}
+            defaultValue={this.state.email}
+            onChangeText={handleEmailChange}
+            textContentType="emailAddress"
+            placeholder="Email Address"
+            keyboardType="email-address"
+            returnKeyType="next"
 
             />
           </Card.Content>
