@@ -5,7 +5,7 @@ import { TouchableHighlight } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import eye from '../assets/eye.png'
 import menuImg from '../assets/MenuImg.png'
-
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 class Background_2 extends Component 
 {  
@@ -25,18 +25,19 @@ class Background_2 extends Component
       <>
       
         <View style = {styles.choix1}/> 
-        <SafeAreaView  style = {{ position: 'absolute',                          
-                          flex: 1,
-                          
+        <SafeAreaView  style = {{ position: 'absolute',
+                                  alignItems: "center",flexDirection: 'row', justifyContent: 'center',
+                                  top:60
+
+
+
                   
-                          alignItems: "center",flexDirection: 'row', justifyContent: 'center',
                           }}>
-                            <TouchableOpacity onPress={()=> {alert("woyy")}}> 
-          <Image source = {menuImg} style ={styles.littleEye2} />
+                            <TouchableOpacity style = {styles.littleEye2} onPress={()=> {alert("woyy")}}> 
+                            <Icon name="bars" size={32} />
         </TouchableOpacity>
-        <Text  adjustsFontSizeToFit={true} alignContent='center'style = {{ fontSize:32,
-        }}> Bienvenue ! </Text>
         <Image source = {eye} style = {styles.littleEye}/> 
+
         
         </SafeAreaView>
         
@@ -53,30 +54,25 @@ const styles = StyleSheet.create({
     choix1: 
   {
     position: 'absolute',
-    width:"100%",
-    height:"15%",
+    width:"20000%",
+    height:"13.75%",
     backgroundColor: '#8659B4',
-    justifyContent: "center",
-    padding: 16,
     
-    alignItems: "center"
 
   },
   littleEye2 :
   { 
     
-    width: "%",
-    height: "100%",
-    left:-75,
-    marginLeft:100
+    width: 40,
+    height: 38,
+    right:-18,
     
   },
   littleEye : 
   {
-    width: "13%",
-    height: "95%",
-    left:50,
-    marginRight:100
+    width: 40,
+    height: 38,
+    left:275,
   }
  
 });

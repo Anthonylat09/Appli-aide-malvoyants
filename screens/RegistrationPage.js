@@ -41,13 +41,13 @@ class Registration extends Component {
         Animated.timing(this.keyboardHeight, {
           duration: event.duration,
           toValue: event.endCoordinates.height,
-          useNativeDriver: true,
+          useNativeDriver: false,
 
         }),
         Animated.timing(this.imageHeight, {
           duration: event.duration,
           toValue: IMAGE_HEIGHT_SMALL,
-          useNativeDriver: true ,
+          useNativeDriver: false ,
 
         }),
       ]).start();
@@ -58,13 +58,13 @@ class Registration extends Component {
         Animated.timing(this.keyboardHeight, {
           duration: event.duration,
           toValue: 2,
-          useNativeDriver: true 
+          useNativeDriver: false 
 
         }),
         Animated.timing(this.imageHeight, {
           duration: event.duration,
           toValue: IMAGE_HEIGHT,
-          useNativeDriver: true,
+          useNativeDriver: false,
 
         }),
       ]).start();
@@ -191,7 +191,7 @@ class Registration extends Component {
                 </SafeAreaView> 
                 <SafeAreaView style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', top:"25%"}}> 
                 <Text top =" 14%"left = "45%">Deja inscrit?</Text>
-                <Button  right="45%" title = "Connectez-vous"></Button>
+                <Button  right="45%" title = "Connectez-vous" onPress = {() => this.props.navigation.navigate('Login')}/>
                 </SafeAreaView>
         
         </KeyboardAvoidingView>
