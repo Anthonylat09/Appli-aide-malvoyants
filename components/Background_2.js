@@ -19,7 +19,7 @@ class Background_2 extends Component
     }
   }
   render() 
-  {
+  { 
     return ( 
       
       <>
@@ -27,13 +27,13 @@ class Background_2 extends Component
         <View style = {styles.choix1}/> 
         <SafeAreaView  style = {{ position: 'absolute',
                                   alignItems: "center",flexDirection: 'row', justifyContent: 'center',
-                                  top:60
+                                  top:30
 
 
 
                   
                           }}>
-                            <TouchableOpacity style = {styles.littleEye2} onPress={()=> {alert("woyy")}}> 
+                            <TouchableOpacity style = {styles.littleEye2} onPress={()=> this.props.navigation.openDrawer()}> 
                             <Icon name="bars" size={32} />
         </TouchableOpacity>
         <Image source = {eye} style = {styles.littleEye}/> 
