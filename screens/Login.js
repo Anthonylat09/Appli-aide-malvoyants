@@ -87,12 +87,11 @@ class Login extends Component {
  
         //Handles sign  in
      const handleSubmit = async () => {
-        if (this.state.email === "" || this.state.password === "") {
+        if (email === "" || password === "") {
           console.error("Invalid Credentials");
         } else {
        try {
-        await handleSignIn(this.state.email, this.state.password);
-        this.props.navigation.navigate('Choices');
+        await handleSignIn(email, password);
        } catch (error) {
         console.error(error);
        }
@@ -109,76 +108,93 @@ class Login extends Component {
                 <Background_3/>
 
         <KeyboardAvoidingView
-        style = {styles.container} 
+        style = {{position: 'absolute',
+        width:"80%",
+        height:"40%",
+        left:"12%",
+        right:"71.69%",
+        top:"25.42%",
+        fontStyle: 'normal',
+        fontSize: 32,
+        textAlign: "center",
+        fontWeight: "bold",
+        textAlign: 'center',
+        marginBottom : 60,
+        lineHeight: 48}}
+        behavior = "padding"
         automaticallyAdjustContentInsets = {true}
         alwaysBounceVertical = {false}
-
         >
-        <Animated.Image source={LoginImg} style ={[styles.LoginImg, {height:this.imageHeight},{width:this.imageHeight}] }/>
+        <Animated.Image source={LoginImg} style ={[styles.LoginImg, {height:this.imageHeight}] }/>
         <Text style = {styles.title}> Bienvenue !</Text>
-        <SafeAreaView style = {styles.inputView}>
-          
+        
+        
+        <SafeAreaView  top="-17.42%" > 
+      <Card>
+          <Card.Content> 
             <TextInput
             
+            placeholderTextColor="#003f5c"
             defaultValue={this.state.email}
             onChangeText={handleEmailChange}
             textContentType="emailAddress"
             placeholder="Email Address"
             keyboardType="email-address"
             returnKeyType="next"
-            style = {styles.TextInput}
 
             />
-           
-         </SafeAreaView> 
-
-         <SafeAreaView style = {styles.inputView}>
+          </Card.Content>
           
+          
+        </Card>
+        
+        </SafeAreaView>
+        <SafeAreaView top = "-6.42%" > 
+      <Card>
+          <Card.Content> 
             <TextInput
             
             placeholder="mot de passe"
+            placeholderTextColor="#003f5c"
             onChangeText={(text) => this.setState({password:text})}
             handlePasswordVisibility={handlePasswordVisibility}
             secureTextEntry={this.state.passwordVisibility}
             autoFocus ={true}
             rightIcon={this.state.rightIcon}
-            style = {styles.TextInput}
 
 
 
             />
-           
-         </SafeAreaView>
+          </Card.Content>
+          
+          
+        </Card>
         
-        
-        
-         <SafeAreaView style = {{
-                width:"55%",
-                height:40,
+        </SafeAreaView>
+       
+        <SafeAreaView style = {{ position:'absolute',
+                width:250,
+                height:41,
+                left:"8%",
+                top:"120%",    
                 backgroundColor: '#240071F5',
-                alignItems: "center",
-                justifyContent: 'center',
-                top:-150,
                 borderRadius: 10}}>
-                <Button color = "#fff" title = "se connecter" onPress = {handleSubmit} /> 
+                <Button color = "#fff" title = "se connecter" onPress = {() => this.props.navigation.navigate('Choices')} /> 
                 </SafeAreaView> 
-                
-
-                <SafeAreaView style={{position:'absolute', flexDirection: 'row',justifyContent: 'center', alignItems: 'center', top:"48%"}}> 
-                <Text left = "45%%">Nouveau ici?</Text>
+                <SafeAreaView style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', top:"48%"}}> 
+                <Text top =" 20%"left = "45%">Nouveau ici?</Text>
 
                 <Button  right="45%" title = "Inscription" onPress = {() => this.props.navigation.navigate('Sign Up')}></Button>
 
                 </SafeAreaView>
-
-
         
         </KeyboardAvoidingView>
-      
-        
-        
         
         </>
+        
+        
+        
+        
       
         
         
@@ -189,41 +205,26 @@ class Login extends Component {
 }
 export {Login}
 const styles = StyleSheet.create({
-  container: {
-      
-    backgroundColor: "#E5d5E6",
-    alignItems: "center",
-    justifyContent: "center",
-       
-  },
-   
-  LoginImg: {
-    position: 'absolute',
-    width:150,
-    top:-525,
-    justifyContent:'center'
-  },
-  title: {
-     
-    fontSize : 32,
-    top:-350,
+    container: {
     justifyContent: 'center'
+    },
+   
+    LoginImg: {
+      width: "63.8%",
+      height: "65.5%",
+      top: "-40%",
+      left:"17%",
+      padding:7
+    },
+    title: {
+      position: 'absolute',
+      left: "19.1%",
+      right: "4.87%",
+      top: "27%",
+      bottom: "-3.87%",
+      fontSize : 32,
+      justifyContent: 'center'
 
-  },
-  TextInput: {
-    height: 50,
-    flex: 1,
-    padding: 10,
-    marginLeft: 20,
-  },
-  inputView: {
-    width: "80%",
-    backgroundColor :"#fff",
-    borderRadius: 10,
-    width: "70%",
-    height: 45,
-    marginBottom: 20,
-    top:-275
-  },
+  }
   
   })   
