@@ -4,6 +4,8 @@ import {Background_1} from '../components/Background_1'
 import { createStackNavigator, createAppContainer} from '@react-navigation/stack';
 import { ChoicesPage } from './ChoicesPage';
 import { NavigationContainer } from '@react-navigation/native';
+import eye from '../assets/eye.png'
+
 let ch = ChoicesPage
 
 class HomePage extends Component {
@@ -22,18 +24,20 @@ class HomePage extends Component {
           
         <> 
         <Background_1/>
+        <View style = {styles.container}>
 
 
         <Text style={styles.headerText}>{this.state.Headertext }</Text>
+        <Image source = {eye} style = {styles.Eye}></Image>
         <Text style = {styles.bottomText} > {this.state.BottomText } </Text>
          <View style = {{ position:'absolute',
                 width:319,
                 height:41,
-                left:36,
-                top:733,    
+                top:-150,    
                 backgroundColor: '#240071F5',
                 borderRadius: 10}}>
                 <Button color = "#fff" title = "Commencer" onPress = {() => this.props.navigation.navigate('Choices')} /> 
+                </View>
                 </View>
         </>
         
@@ -52,16 +56,15 @@ class HomePage extends Component {
 
  const styles = StyleSheet.create({
     container: {
-      flex: 2,
-      justifyContent: "center",
       alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "#E4d5E5",
     },
     headerText: {
       position: 'absolute',
       width:325,
       height:165,
-      left:33,
-      top:125,
+      top:-650,
       fontStyle: 'normal',
       fontSize: 32,
       textAlign: "center",
@@ -73,8 +76,7 @@ class HomePage extends Component {
       position: 'absolute',
       width:332,
       height:175,
-      left:32,
-      top:475,
+      top:-350,
       fontStyle: 'normal',
       fontWeight:700,
       width:320, 
@@ -87,10 +89,11 @@ class HomePage extends Component {
       
     },
     Eye: {
+      position:'absolute',
       width: 150,
       height: 150,
       resizeMode: 'stretch',
-      top: -30,
+      top: -500,
     },
   
   });

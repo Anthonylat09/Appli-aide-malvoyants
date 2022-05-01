@@ -6,8 +6,8 @@ import {Card, Provider as PaperProvider} from 'react-native-paper'
 import { SafeAreaView } from 'react-navigation';
 import { handleSignUp } from "../services/Firebase";
 import eye from '../assets/eye.png'
-let IMAGE_HEIGHT = 0
-let IMAGE_HEIGHT_SMALL = 0
+let IMAGE_HEIGHT = 135
+let IMAGE_HEIGHT_SMALL = 120
 class Registration extends Component {
     constructor(props)
     {
@@ -43,13 +43,13 @@ class Registration extends Component {
         Animated.timing(this.keyboardHeight, {
           duration: event.duration,
           toValue: event.endCoordinates.height,
-          useNativeDriver: true,
+          useNativeDriver: false,
 
         }),
         Animated.timing(this.imageHeight, {
           duration: event.duration,
           toValue: IMAGE_HEIGHT_SMALL,
-          useNativeDriver: true ,
+          useNativeDriver: false ,
 
         }),
       ]).start();
@@ -60,13 +60,13 @@ class Registration extends Component {
         Animated.timing(this.keyboardHeight, {
           duration: event.duration,
           toValue: 2,
-          useNativeDriver: true 
+          useNativeDriver: false 
 
         }),
         Animated.timing(this.imageHeight, {
           duration: event.duration,
           toValue: IMAGE_HEIGHT,
-          useNativeDriver: true,
+          useNativeDriver: false,
 
         }),
       ]).start();
@@ -113,123 +113,113 @@ class Registration extends Component {
       return (
         
           
-        <> 
-                <Background_1/>
+        <>
+        <Background_1/>
 
         <KeyboardAvoidingView
-        style = {{position: 'absolute',
-        width:"80%",
-        height:"40%",
-        left:"12%",
-        right:"71.69%",
-        top:"25.42%",
-        fontStyle: 'normal',
-        fontSize: 32,
-        textAlign: "center",
-        fontWeight: "bold",
-        textAlign: 'center',
-        padding:7,
-        lineHeight: 48}}
-        behavior = "padding"
+        style = {styles.container} 
         automaticallyAdjustContentInsets = {true}
-        alwaysBounceVertical = {true}
+        alwaysBounceVertical = {false}
+
         >
-        <Animated.Image source={eye} style ={styles.Eye}/>
-        
-        <SafeAreaView top ="-47.42%" > 
-      <Card>
-          <Card.Content> 
-            <TextInput
-            style={styles.TextInput}
-            placeholder="Prénom"
-            placeholderTextColor="#003f5c"
-            onChangeText={(text) => this.setState({firstname:text})}
-            />
-          </Card.Content>
+        <Animated.Image source={eye} style ={[styles.Eye, {height:this.imageHeight},{width:this.imageHeight}] }/>
+        <Text style = {styles.title}> Bienvenue !</Text>
+        <SafeAreaView style = {[styles.inputView, {top:-500}]}>
           
+          <TextInput
           
-        </Card>
-        
-        </SafeAreaView>
-        <SafeAreaView  top="-36.42%" > 
-      <Card>
-          <Card.Content> 
+          defaultValue={this.state.email}
+          textContentType="name"
+          placeholder="Nom"
+          returnKeyType="next"
+          style = {styles.TextInput}
+
+          />
+         
+       </SafeAreaView> 
+      
+        <SafeAreaView style = {[styles.inputView, {top:-430}]}>
+          
             <TextInput
             
-            
-            placeholderTextColor="#003f5c"
             defaultValue={this.state.email}
             onChangeText={handleEmailChange}
             textContentType="emailAddress"
             placeholder="Email Address"
             keyboardType="email-address"
             returnKeyType="next"
+            style = {styles.TextInput}
+            
 
             />
-          </Card.Content>
+           
+         </SafeAreaView> 
+
+         <SafeAreaView style = {[styles.inputView, {top:-360}]}>
           
-          
-        </Card>
-        
-        </SafeAreaView>
-        <SafeAreaView top = "-25.42%" > 
-      <Card>
-          <Card.Content> 
             <TextInput
             
             placeholder="mot de passe"
-            placeholderTextColor="#003f5c"
             onChangeText={(text) => this.setState({password:text})}
             handlePasswordVisibility={handlePasswordVisibility}
             secureTextEntry={this.state.passwordVisibility}
             autoFocus ={true}
             rightIcon={this.state.rightIcon}
+            style = {styles.TextInput}
 
 
 
             />
-          </Card.Content>
+           
+         </SafeAreaView>
+         <SafeAreaView style = {[styles.inputView, {top:-290}]}>
           
+          <TextInput
           
-        </Card>
-        
-        </SafeAreaView>
-        <SafeAreaView top = "-12.42%" > 
-      <Card>
-          <Card.Content> 
-            <TextInput
-            style={styles.TextInput}
-            placeholder="confimer mot de passe"
-            placeholderTextColor="#003f5c"
-            onChangeText={(text) => this.setState({confirmerPassword:text})}
-            secureTextEntry={this.state.passwordVisibility}
-            rightIcon={this.state.rightIcon}
+          placeholder="mot de passe"
+          onChangeText={(text) => this.setState({password:text})}
+          handlePasswordVisibility={handlePasswordVisibility}
+          secureTextEntry={this.state.passwordVisibility}
+          autoFocus ={true}
+          rightIcon={this.state.rightIcon}
+          style = {styles.TextInput}
 
-            />
-          </Card.Content>
-          
-          
-        </Card>
+
+
+          />
+         
+       </SafeAreaView>
         
-        </SafeAreaView>
-        <SafeAreaView style = {{ position:'absolute',
-                width:250,
-                height:41,
-                left:"8%",
-                top:"120%",    
+        
+        
+         <SafeAreaView style = {{
+                position:'absolute',
+                width:"65%",
+                height:40,
                 backgroundColor: '#240071F5',
+                alignItems: "center",
+                justifyContent: 'center',
+                top:-100,
                 borderRadius: 10}}>
                 <Button color = "#fff" title = "Inscription" onPress = {handleSubmit} /> 
                 </SafeAreaView> 
-                <SafeAreaView style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', top:"25%"}}> 
-                <Text top =" 14%"left = "45%">Deja inscrit?</Text>
+                
+
+                <SafeAreaView style={{position:'absolute', flexDirection: 'row',justifyContent: 'center', alignItems: 'center', top:-60}}> 
+                <Text left = "45%%">Deja inscrit?</Text>
+
                 <Button  right="45%" title = "Connectez-vous" onPress = {() => this.props.navigation.navigate('Login')}></Button>
+
                 </SafeAreaView>
+
+
         
         </KeyboardAvoidingView>
+      
+        
+        
         
         </>
-        
         
         
         
@@ -243,23 +233,40 @@ class Registration extends Component {
 }
 export {Registration}
 const styles = StyleSheet.create({
-    container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-    },
+  container: {
+    
+    backgroundColor: "#E5d5E6",
+    alignItems: "center",
+  justifyContent: "center",
+     
+  },
+ 
+  Eye: {
+          position: 'absolute',
+
+    width:150,
+    top:-700,
+  },
+  title: {
    
-    Eye: {
-      width: "50%",
-      height: "45%",
-      top: "-56%",
-      left:"22%",
-    },
-    title: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: '#fff',
-    alignSelf: 'center',
-    paddingBottom: 24
-  }
-  
-  })
+    fontSize : 32,
+    top:-580,
+    justifyContent: 'center'
+
+},
+TextInput: {
+  height: 50,
+  flex: 1,
+  padding: 10,
+},
+inputView: {
+  position:'absolute',
+
+  width: "80%",
+  backgroundColor :"#fff",
+  borderRadius: 10,
+  height: 45,
+  marginBottom: 20,
+},
+
+})   

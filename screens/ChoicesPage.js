@@ -18,8 +18,8 @@ class ChoicesPage extends Component
   {
     return ( 
       <><Background_1 />
+      <View style = {styles.container}>
         <View style = {styles.choix1}>
-        <Button color ="#fff" title= {this.state.BottomText} onPress = {() => this.props.navigation.navigate('Login')}/>
         <Button titleStyle = {styles.buttons}
                 buttonStyle = {{
                   backgroundColor: "",
@@ -36,7 +36,7 @@ class ChoicesPage extends Component
                 title= {this.state.BottomText} 
                 onPress = {() => this.props.navigation.navigate('Login')}/>
         </View>
-        
+        </View>
     </>
     );   
   }
@@ -44,9 +44,8 @@ class ChoicesPage extends Component
 
 const styles = StyleSheet.create({
     container: {
-      flex: 2,
-      justifyContent: "center",
       alignItems: "center",
+      justifyContent: "center",
       backgroundColor: "#E4d5E5",
     },
 
@@ -57,10 +56,8 @@ const styles = StyleSheet.create({
 
     choix1: {
     position: 'absolute',
-    width:340,
-    height:145,
-    left:21,
-    top:210,
+    top:-600,
+    width:300,
     backgroundColor: '#430D78',
     borderRadius: 10,
     justifyContent: "center",
@@ -70,10 +67,8 @@ const styles = StyleSheet.create({
 
   choix2: {
     position: 'absolute',
-    width:340,
-    height:145,
-    left:21,
-    top:465,
+    top:-250,
+    width:300,
     backgroundColor: '#430D78',
     borderRadius: 10,
     justifyContent: "center",
