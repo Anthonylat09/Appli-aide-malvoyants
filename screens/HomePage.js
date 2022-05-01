@@ -75,12 +75,18 @@ class HomePage extends Component {
     bottomText: {
       position: 'absolute',
       width:332,
+<<<<<<< HEAD
       height:175,
       top:-350,
+=======
+      height:176,
+      left:32,
+      top:475,
+>>>>>>> featureBackground3
       fontStyle: 'normal',
       fontWeight:700,
       width:320, 
-      fontSize: 23,
+      fontSize: 22,
       textAlign: "center",
       fontWeight: "bold",
       lineHeight:36,

@@ -35,7 +35,10 @@ class ChoicesPage extends Component
                 }}
                 title= {this.state.BottomText} 
                 onPress = {() => this.props.navigation.navigate('Login')}/>
+<<<<<<< HEAD
         </View>
+=======
+>>>>>>> featureBackground3
         </View>
     </>
     );   
@@ -55,6 +58,22 @@ const styles = StyleSheet.create({
     },
 
     choix1: {
+<<<<<<< HEAD
+=======
+    position: 'absolute',
+    width:340,
+    height:145,
+    left:21,
+    top:210,
+    backgroundColor: '#430D78',
+    borderRadius: 10,
+    justifyContent: "center",
+    padding: 16
+
+   },
+
+  choix2: {
+>>>>>>> featureBackground3
     position: 'absolute',
     top:-600,
     width:300,
@@ -65,6 +84,7 @@ const styles = StyleSheet.create({
 
    },
 
+<<<<<<< HEAD
   choix2: {
     position: 'absolute',
     top:-250,
@@ -76,6 +96,8 @@ const styles = StyleSheet.create({
 
    },
 
+=======
+>>>>>>> featureBackground3
  
 });
 export {ChoicesPage}
