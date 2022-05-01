@@ -1,7 +1,7 @@
 {
   "name": "dev-mobile-project",
   "version": "1.0.0",
-  "main": "index.js",  
+  "main": "index.js",
   "scripts": {
     "start": "expo start --dev-client",
     "android": "expo run:android",
@@ -14,11 +14,14 @@
     "expo": "~44.0.2",
     "expo-splash-screen": "~0.14.1",
     "expo-status-bar": "~1.2.0",
+    "firebase": "^9.7.0",
+    "node-fetch": "^2.6.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
+    "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "~2.1.0",
-    "react-native-paper": "^4.12.0",
+    "react-native-paper": "^4.12.1",
     "react-native-web": "0.17.1",
     "react-navigation": "^4.4.4"
   },
@@ -28,4 +31,4 @@
     "@types/react-native": "^0.67.6"
   },
   "private": true
-}      
+}
