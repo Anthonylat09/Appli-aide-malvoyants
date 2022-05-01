@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button,Image, KeyboardAvoidingView,Animated,Keyboard } from 'react-native';
 import { ScrollView, TextInput, } from 'react-native-gesture-handler';
-<<<<<<< HEAD
-import {Background_1} from '../components/Background_1'
-import { SafeAreaView } from 'react-navigation'
-import LoginImg from '../assets/LoginImg.png'
-import { handleSignIn } from "../services/Firebase";
-let IMAGE_HEIGHT = 170
-let IMAGE_HEIGHT_SMALL = 150
-=======
 import {Background_3} from '../components/Background_3'
 import {Card, Provider as PaperProvider} from 'react-native-paper'
 import { SafeAreaView } from 'react-navigation'
@@ -17,7 +9,6 @@ import { handleSignIn } from "../services/Firebase";
 
 let IMAGE_HEIGHT = 193   
 let IMAGE_HEIGHT_SMALL = 190.6
->>>>>>> featureBackground3
 class Login extends Component {   
     constructor(props)
     {
@@ -114,13 +105,8 @@ class Login extends Component {
       return (
         
           
-<<<<<<< HEAD
-        <>
-        <Background_1/>
-=======
         <> 
                 <Background_3/>
->>>>>>> featureBackground3
 
         <KeyboardAvoidingView
         style = {styles.container} 
@@ -203,26 +189,25 @@ class Login extends Component {
 }
 export {Login}
 const styles = StyleSheet.create({
-    container: {
+  container: {
       
-      backgroundColor: "#E5d5E6",
-      alignItems: "center",
+    backgroundColor: "#E5d5E6",
+    alignItems: "center",
     justifyContent: "center",
        
-    },
+  },
    
-    LoginImg: {
-            position: 'absolute',
-
-      width:150,
-      top:-525,
-      justifyContent:'center'
-    },
-    title: {
+  LoginImg: {
+    position: 'absolute',
+    width:150,
+    top:-525,
+    justifyContent:'center'
+  },
+  title: {
      
-      fontSize : 32,
-      top:-350,
-      justifyContent: 'center'
+    fontSize : 32,
+    top:-350,
+    justifyContent: 'center'
 
   },
   TextInput: {

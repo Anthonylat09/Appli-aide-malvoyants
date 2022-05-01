@@ -24,21 +24,37 @@ class HomePage extends Component {
           
         <> 
         <Background_1/>
-        <View style = {styles.container}>
+        
+        <View style={styles.headerContainer}>
 
+        <Text style = {styles.headerText}>{this.state.Headertext }</Text>
 
-        <Text style={styles.headerText}>{this.state.Headertext }</Text>
+        </View>
+
+        <View style = {styles.eyeContainer}>
+
         <Image source = {eye} style = {styles.Eye}></Image>
-        <Text style = {styles.bottomText} > {this.state.BottomText } </Text>
-         <View style = {{ position:'absolute',
-                width:319,
-                height:41,
-                top:-150,    
-                backgroundColor: '#240071F5',
-                borderRadius: 10}}>
-                <Button color = "#fff" title = "Commencer" onPress = {() => this.props.navigation.navigate('Choices')} /> 
-                </View>
-                </View>
+
+        </View>
+
+        <View style = {styles.bottomContainer}>
+
+        <Text style = {styles.bottomText}> {this.state.BottomText } </Text>
+
+        </View>
+
+         <View style = {{ 
+                  position:'absolute',
+                  width:319,
+                  height:41,
+                  left: 36,
+                  top:733,    
+                  backgroundColor: '#240071F5',
+                  borderRadius: 10}}>
+                  
+                  <Button color = "#fff" title = "Commencer" onPress = {() => this.props.navigation.navigate('Choices')} /> 
+          </View>
+
         </>
         
         
@@ -55,16 +71,17 @@ class HomePage extends Component {
 
 
  const styles = StyleSheet.create({
-    container: {
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: "#E4d5E5",
-    },
-    headerText: {
+    headerContainer: {
       position: 'absolute',
+      justifyContent: "center",
+      alignItems: "center",
       width:325,
       height:165,
-      top:-650,
+      left:32,
+      top:135,
+    },
+    headerText: {
+      
       fontStyle: 'normal',
       fontSize: 32,
       textAlign: "center",
@@ -72,20 +89,19 @@ class HomePage extends Component {
       textAlign: 'center',
       lineHeight: 48
     }, 
-    bottomText: {
+    
+    bottomContainer:{
       position: 'absolute',
       width:332,
-<<<<<<< HEAD
-      height:175,
-      top:-350,
-=======
       height:176,
       left:32,
-      top:475,
->>>>>>> featureBackground3
+      top:500,
+      textAlign: 'center'
+    },
+    bottomText: {
+      position: 'absolute', 
       fontStyle: 'normal',
       fontWeight:700,
-      width:320, 
       fontSize: 22,
       textAlign: "center",
       fontWeight: "bold",
@@ -94,12 +110,16 @@ class HomePage extends Component {
       
       
     },
-    Eye: {
+
+    eyeContainer:{
       position:'absolute',
+      top: 319,
+      left: 120,
+    },
+    Eye: {
       width: 150,
       height: 150,
       resizeMode: 'stretch',
-      top: -500,
     },
   
   });

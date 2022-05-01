@@ -4,11 +4,6 @@ import { StyleSheet, Text, View } from 'react-native';
 class Background_1 extends React.Component {
     constructor(props){
         super(props)
-                    
-        /* REMEMBER USE this.setState for update THIS  */
-        this.state = {
-            text: 'Hello from'
-        }
     }
 
     render()  
@@ -16,7 +11,7 @@ class Background_1 extends React.Component {
       return ( 
         <View style={styles.container}>
          
-          <View color ='#9D69FA' style={styles.Circle1} />
+          <View style={styles.Circle1} />
           <View style = {styles.Circle2} />        
         </View>
   
