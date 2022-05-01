@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button,Image } from 'react-native';
+import { StyleSheet, Text, View,Image } from 'react-native';
+import { Button } from 'react-native-elements';
 import { Background_1 } from '../components/Background_1';
 
 class ChoicesPage extends Component 
@@ -19,6 +20,21 @@ class ChoicesPage extends Component
       <><Background_1 />
         <View style = {styles.choix1}>
         <Button color ="#fff" title= {this.state.BottomText} onPress = {() => this.props.navigation.navigate('Login')}/>
+        <Button titleStyle = {styles.buttons}
+                buttonStyle = {{
+                  backgroundColor: "",
+                }}
+                title= {this.state.HeaderText} 
+                onPress = {() => this.props.navigation.navigate('Login')}/>
+        </View>
+
+        <View style = {styles.choix2}>
+        <Button titleStyle = {styles.buttons}
+                buttonStyle = {{
+                  backgroundColor: "",
+                }}
+                title= {this.state.BottomText} 
+                onPress = {() => this.props.navigation.navigate('Login')}/>
         </View>
         
     </>
@@ -33,8 +49,26 @@ const styles = StyleSheet.create({
       alignItems: "center",
       backgroundColor: "#E4d5E5",
     },
-    choix1: 
-  {
+
+    buttons: {
+      color : "white",
+      fontSize : 32,
+    },
+
+    choix1: {
+    position: 'absolute',
+    width:340,
+    height:145,
+    left:21,
+    top:210,
+    backgroundColor: '#430D78',
+    borderRadius: 10,
+    justifyContent: "center",
+    padding: 16
+
+   },
+
+  choix2: {
     position: 'absolute',
     width:340,
     height:145,
@@ -45,7 +79,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 16
 
-  },
+   },
+
  
 });
 export {ChoicesPage}
