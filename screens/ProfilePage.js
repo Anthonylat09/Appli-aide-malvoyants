@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Background_1} from '../components/Background_1'
+import Background_4 from '../components/Background_4'
 class ProfilePage extends Component 
 {  
   constructor(props)
@@ -13,7 +13,7 @@ class ProfilePage extends Component
   render(){
       return(
           <>
-            <Background_1/>
+            <Background_4/>
           </>
       )
   }
