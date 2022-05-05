@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import {Background_1} from './components/Background_1'
 import {HomePage,App2} from './screens/HomePage'
 import {ChoicesPage}  from './screens/ChoicesPage'
+import {ProfilePage}  from './screens/ProfilePage'
 import { NavigationContainer } from '@react-navigation/native';
 import { Login } from './screens/Login';
 import { Background_2 } from './components/Background_2';
@@ -25,7 +26,7 @@ const Stack = createStackNavigator();
 const MyStack = () => 
 {
   return ( 
-    <Stack.Navigator initialRouteName='Home' screenOptions={{
+    <Stack.Navigator initialRouteName='Profile' screenOptions={{
     headerShown: false,
     
   }}> 
@@ -33,10 +34,11 @@ const MyStack = () =>
 
       <Stack.Screen name = "Choices" component = {choice}/>
      
-
       <Stack.Screen name = "Login" component = {log}/>
 
       <Stack.Screen name = "Sign Up" component = {reg}/>
+
+      <Stack.Screen name = "Profile" component = {ProfilePage}/>
 
     </Stack.Navigator>
   ) 
