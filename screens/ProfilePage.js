@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import Background_4 from '../components/Background_4'
 class ProfilePage extends Component 
@@ -25,7 +25,7 @@ class ProfilePage extends Component
               </View>
              
               <View style = {styles.NomUtilisateur}>
-
+                <Text style = {styles.NomTexte}>{this.props.name}</Text>
               </View>
 
               <View style = {styles.InfosUtilisateur}>
@@ -66,16 +66,19 @@ const styles = StyleSheet.create({
   },
   
   Header:{
-    flex:2
+    flex:2,
   },
 
   PhotoProfil:{
     flex: 3,
   },
 
+  NomTexte:{
+    fontSize: 25
+  },
+
   NomUtilisateur:{
     flex: 1,
-    backgroundColor:'red'
   },
 
   InfosUtilisateur:{
