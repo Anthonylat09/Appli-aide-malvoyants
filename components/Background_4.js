@@ -44,6 +44,7 @@ class Background_4 extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
+      position: 'absolute',
       alignItems: "center",
       backgroundColor: "#E4d5E5",
       width:"100%",
