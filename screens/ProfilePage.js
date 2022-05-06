@@ -18,7 +18,8 @@ class ProfilePage extends Component
             
             <Background_4/>
             <View style = {styles.ContainerParent}>
-              
+              <View style = {styles.Header}/>
+
               <View style = {styles.PhotoProfil}>
 
               </View>
@@ -28,6 +29,11 @@ class ProfilePage extends Component
               </View>
 
               <View style = {styles.InfosUtilisateur}>
+                <View style = {{
+                  backgroundColor: '#8659B4',  
+                  width:271,
+                  height:120,
+                }}/>
 
               </View>
 
@@ -37,9 +43,7 @@ class ProfilePage extends Component
               <View style = {styles.SupprimerCompte}>
                 <Button titleStyle = {styles.BoutonSupprimer}
                     buttonStyle = {{
-                      backgroundColor: '#430D78',
-                      justifyContent: 'center',
-                      alignItems: 'center',
+                      backgroundColor: '#430D78',  
                       width:271,
                       height:55,
                     }}
@@ -56,11 +60,13 @@ export {ProfilePage}
 
 const styles = StyleSheet.create({
   ContainerParent: {
-    flex: 1
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  BoutonSupprimer: {
-    color : "red",
-    fontSize : 25,
+  
+  Header:{
+    flex:2
   },
 
   PhotoProfil:{
@@ -69,21 +75,29 @@ const styles = StyleSheet.create({
 
   NomUtilisateur:{
     flex: 1,
-    
+    backgroundColor:'red'
   },
 
   InfosUtilisateur:{
-    flex: 1,
+    flex: 3,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   StatsUtilisateur:{
-    flex: 1,
+    flex: 3,
+    backgroundColor: 'red'
 
   },
   SupprimerCompte: {
-    flex: 1,
+    flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
     
-  }
+  },
+
+  BoutonSupprimer: {
+    color : "red",
+    fontSize : 25,
+  },
 })
