@@ -4,10 +4,10 @@ import { ScrollView, TextInput, } from 'react-native-gesture-handler';
 import {Background_1} from '../components/Background_1'
 import {Card, Provider as PaperProvider} from 'react-native-paper'
 import { SafeAreaView } from 'react-navigation';
-import { handleSignUp } from "../services/Firebase";
 import eye from '../assets/eye.png'
-let IMAGE_HEIGHT = 135
-let IMAGE_HEIGHT_SMALL = 120
+import *as auth from 'firebase/auth'
+let IMAGE_HEIGHT = 120
+let IMAGE_HEIGHT_SMALL = 100
 class Registration extends Component {
     constructor(props)
     {
@@ -94,6 +94,18 @@ class Registration extends Component {
       {
         this.setState({password:text})
       } 
+      const handleSignUp = async (email, password) => {
+        await auth.createUserWithEmailAndPassword(auth.getAuth(),email, password)
+          .then(() => {
+            console.log(auth.getAuth().currentUser);
+            const user = auth.currentUser;
+            this.props.navigation.navigate('Login');
+
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      };
       //Handles sign up
       const handleSubmit = async () => {
 
@@ -102,7 +114,6 @@ class Registration extends Component {
         } else {
           try {
             await handleSignUp(this.state.email, this.state.password);
-            this.props.navigation.navigate('Login');
 
           } catch (error) {
             console.error(error);

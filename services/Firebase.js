@@ -1,10 +1,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp} from "firebase/app";
+import firebase from 'firebase/app'
 import { getAnalytics } from "firebase/analytics";
 import 'firebase/auth'
+import {collection} from'firebase/firestore'
 import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
-
-
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -21,14 +21,13 @@ const firebaseConfig = {
 };
   
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth()
 // signup function
 export const handleSignUp = async (email, password) => {
     await createUserWithEmailAndPassword(auth,email, password)
       .then(() => {
-        console.log("wesh")
         console.log(auth.currentUser);
         const user = auth.currentUser;
       })
@@ -39,10 +38,14 @@ export const handleSignUp = async (email, password) => {
 // sign in function
 export const handleSignIn = async (email, password) => {
     await signInWithEmailAndPassword(auth,email, password)
-      .then(() => {
-        console.log(auth.currentUser);    
+      .then((response) => {
+        const uid = response.user.uid
+        const usersRef = collection('users')
+        
+        
       })
       .catch((error) => {
         console.error(error);
       });
   };  
+

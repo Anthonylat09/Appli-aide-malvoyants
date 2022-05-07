@@ -5,6 +5,7 @@ import {Background_1} from '../components/Background_1'
 import { SafeAreaView } from 'react-navigation'
 import LoginImg from '../assets/LoginImg.png'
 import app from '../services/Firebase'
+import {collection} from'firebase/firestore'
 import *as auth from 'firebase/auth'
 let IMAGE_HEIGHT = 170
 let IMAGE_HEIGHT_SMALL = 150
@@ -87,10 +88,11 @@ class Login extends Component {
       {
         auth.signInWithEmailAndPassword(auth.getAuth(),this.state.email,this.state.password)
         .then(() => {
-          console.log("wesh")
-        console.log(auth.currentUser);
-        
-        const user = auth.currentUser;}) 
+          console.log("wesh")        
+        const user = auth.getAuth().currentUser;
+        this.props.navigation.navigate('Choices');
+
+        console.log(user)}) 
       }
      const handleSubmit = async () => {
         if (this.state.email === "" || this.state.password === "") {
@@ -98,7 +100,6 @@ class Login extends Component {
         } else {
        try {
         await handleSignIn(this.state.email, this.state.password);
-        this.props.navigation.navigate('Choices');
        } catch (error) {
         console.error(error);
        }

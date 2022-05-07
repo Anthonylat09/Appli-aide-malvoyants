@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
       alignItems: "center",
       justifyContent: "center",
       backgroundColor: "#E4d5E5",
+      flexDirection:"column-reverse"
     },
 
     buttons: {
