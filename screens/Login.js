@@ -4,7 +4,8 @@ import { ScrollView, TextInput, } from 'react-native-gesture-handler';
 import {Background_1} from '../components/Background_1'
 import { SafeAreaView } from 'react-navigation'
 import LoginImg from '../assets/LoginImg.png'
-import { handleSignIn } from "../services/Firebase";
+import app from '../services/Firebase'
+import *as auth from 'firebase/auth'
 let IMAGE_HEIGHT = 170
 let IMAGE_HEIGHT_SMALL = 150
 class Login extends Component {   
@@ -82,8 +83,15 @@ class Login extends Component {
         }
       };
       
- 
-        //Handles sign  in
+      const handleSignIn = () => 
+      {
+        auth.signInWithEmailAndPassword(auth.getAuth(),this.state.email,this.state.password)
+        .then(() => {
+          console.log("wesh")
+        console.log(auth.currentUser);
+        
+        const user = auth.currentUser;}) 
+      }
      const handleSubmit = async () => {
         if (this.state.email === "" || this.state.password === "") {
           console.error("Invalid Credentials");
