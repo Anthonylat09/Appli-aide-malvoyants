@@ -11,14 +11,12 @@ class ChoicesPage extends Component
     this.state = {
       HeaderText : "Vous avez besoin\n d’assistance visuelle",
       BottomText: "Vous voulez aider\n un malvoyant"
-
     }
   }
   render() 
   {
     return ( 
       <><Background_1 />
-      <View style = {styles.container}>
         <View style = {styles.choix1}>
         <Button titleStyle = {styles.buttons}
                 buttonStyle = {{
@@ -36,7 +34,7 @@ class ChoicesPage extends Component
                 title= {this.state.BottomText} 
                 onPress = {() => this.props.navigation.navigate('Login')}/>
         </View>
-        </View>
+        
     </>
     );   
   }
@@ -44,10 +42,11 @@ class ChoicesPage extends Component
 
 const styles = StyleSheet.create({
     container: {
+     
       alignItems: "center",
       justifyContent: "center",
       backgroundColor: "#E4d5E5",
-      flexDirection:"column-reverse"
+
     },
 
     buttons: {
@@ -57,8 +56,10 @@ const styles = StyleSheet.create({
 
     choix1: {
     position: 'absolute',
-    top:-600,
-    width:300,
+    width:340,
+    height:145,
+    left:21,
+    top:210,
     backgroundColor: '#430D78',
     borderRadius: 10,
     justifyContent: "center",
@@ -68,8 +69,10 @@ const styles = StyleSheet.create({
 
   choix2: {
     position: 'absolute',
-    top:-250,
-    width:300,
+    width:340,
+    height:145,
+    left:21,
+    top:465,
     backgroundColor: '#430D78',
     borderRadius: 10,
     justifyContent: "center",

@@ -23,29 +23,5 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const auth = getAuth()
-// signup function
-export const handleSignUp = async (email, password) => {
-    await createUserWithEmailAndPassword(auth,email, password)
-      .then(() => {
-        console.log(auth.currentUser);
-        const user = auth.currentUser;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-// sign in function
-export const handleSignIn = async (email, password) => {
-    await signInWithEmailAndPassword(auth,email, password)
-      .then((response) => {
-        const uid = response.user.uid
-        const usersRef = collection('users')
-        
-        
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };  
+
 

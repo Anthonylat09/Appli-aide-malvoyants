@@ -1,19 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar,StyleSheet, Text, View } from 'react-native';
+import {LinearGradient} from 'expo-linear-gradient';
 
-class Background_1 extends React.Component {
+class Background_3 extends React.Component {
     constructor(props){
         super(props)
+
     }
 
     render()  
     {
       return ( 
-        <View style={styles.container}>
-         
-          <View style={styles.Circle1} />
-          <View style = {styles.Circle2} />        
-        </View>
+        <LinearGradient colors = {['#FFFFFF', '#430D78']} style={styles.container}>
+            <StatusBar barStyle="dark-content"/>
+            <View style={styles.Circle1} />
+            <View style = {styles.Circle2} />        
+        </LinearGradient>
   
       );
     }
@@ -21,10 +23,10 @@ class Background_1 extends React.Component {
 }
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 3,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#E5d5E6",
+        backgroundColor: "#E4D5E4",
       },
       Circle1: {
         position: 'absolute',
@@ -49,4 +51,4 @@ const styles = StyleSheet.create({
         opacity: 0.7
       }
 });
-export {Background_1}
+export {Background_3}

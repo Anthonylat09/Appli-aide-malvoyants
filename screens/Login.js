@@ -7,6 +7,7 @@ import LoginImg from '../assets/LoginImg.png'
 import app from '../services/Firebase'
 import {collection} from'firebase/firestore'
 import *as auth from 'firebase/auth'
+import { Background_3 } from '../components/Background_3';
 let IMAGE_HEIGHT = 170
 let IMAGE_HEIGHT_SMALL = 150
 class Login extends Component {   
@@ -90,8 +91,7 @@ class Login extends Component {
         .then(() => {
           console.log("wesh")        
         const user = auth.getAuth().currentUser;
-        this.props.navigation.navigate('Choices');
-
+        this.props.navigation.navigate('Choices')
         console.log(user)}) 
       }
      const handleSubmit = async () => {
@@ -113,7 +113,7 @@ class Login extends Component {
         
           
         <>
-        <Background_1/>
+        <Background_3/>
 
         <KeyboardAvoidingView
         style = {styles.container} 
@@ -197,8 +197,9 @@ class Login extends Component {
 export {Login}
 const styles = StyleSheet.create({
     container: {
+      flex:1,
       
-      backgroundColor: "#E5d5E6",
+      backgroundColor: "#430D78",
       alignItems: "center",
     justifyContent: "center",
        
