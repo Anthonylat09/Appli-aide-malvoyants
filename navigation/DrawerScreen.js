@@ -12,7 +12,7 @@ import { Welcome } from '../screens/Welcome';
 const Drawer = createDrawerNavigator()
 class DrawerScreen extends React.Component {
     render() {
-    return <NavigationContainer independent = {true}>
+    return 
     <Drawer.Navigator
       
       drawerContent={props => <CustomDrawer {...props} />}
@@ -37,7 +37,7 @@ class DrawerScreen extends React.Component {
         component={ProfilePage} />
       
     </Drawer.Navigator>
-  </NavigationContainer> ;}
+   ;}
       
   }
 

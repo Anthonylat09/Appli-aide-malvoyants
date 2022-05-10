@@ -3,9 +3,9 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {Background_1} from './components/Background_1'
 import {HomePage,App2} from './screens/HomePage'
-import {DrawerScreen} from './screens/DrawerScreen' 
 import {ChoicesPage}  from './screens/ChoicesPage'
 import {ProfilePage}  from './screens/ProfilePage'
+import { Welcome } from './screens/Welcome';
 import { NavigationContainer } from '@react-navigation/native';
 import { Login } from './screens/Login';
 import { Background_2 } from './components/Background_2';
@@ -38,7 +38,7 @@ const MyStack = () =>
 
       <Stack.Screen name = "Sign Up" component = {reg}/>
 
-      <Stack.Screen name = "Drawer" component = {DrawerScreen}/>
+      <Stack.Screen name = "Welcome" component = {Welcome}/>
 
       <Stack.Screen name = "Profile" component = {ProfilePage}/>
 
