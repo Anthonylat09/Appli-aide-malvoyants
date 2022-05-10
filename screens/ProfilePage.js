@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
 import { Button } from 'react-native-elements';
 import Background_4 from '../components/Background_4'
+import LoginImg from '../assets/LoginImg.png'
 class ProfilePage extends Component 
 {  
   constructor(props)
@@ -18,30 +19,38 @@ class ProfilePage extends Component
             
             <Background_4/>
             <View style = {styles.ContainerParent}>
-              <View style = {styles.Header}/>
+              <View style = {styles.BackgroundHeader}/>
 
-              <View style = {styles.PhotoProfil}>
-
+              <View style = {styles.FlexPhotoProfil}>
+                <Image source = {LoginImg} style = {styles.PhotoProfil}/>
               </View>
              
-              <View style = {styles.NomUtilisateur}>
-                <Text style = {styles.NomTexte}>Rew</Text>
+              <View style = {styles.FlexNomUtilisateur}>
+                <Text style = {styles.NomUtilisateur}>Rew</Text>
               </View>
 
-              <View style = {styles.InfosUtilisateur}>
+              <View style = {styles.FlexInfosUtilisateur}>
                 <View style = {{
                   backgroundColor: '#8659B4',  
                   width:271,
-                  height:120,
-                }}/>
-
+                  height:110,
+                }}>
+                <Text style = {styles.InfosUtilisateur}>Rew</Text>
+                <Text style = {styles.InfosUtilisateur}></Text>
+                <Text style = {styles.InfosUtilisateur}>Rew</Text>
+                <Text style = {styles.InfosUtilisateur}></Text>
+                <Text style = {styles.InfosUtilisateur}>Rew</Text>
+                <Text style = {styles.InfosUtilisateur}></Text>
+                <Text style = {styles.InfosUtilisateur}>Rew</Text>
+                  </View>
+                
               </View>
 
-              <View style = {styles.StatsUtilisateur}>
+              <View style = {styles.FlexStatsUtilisateur}>
 
               </View>
-              <View style = {styles.SupprimerCompte}>
-                <Button titleStyle = {styles.BoutonSupprimer}
+              <View style = {styles.FlexSupprimerCompte}>
+                <Button titleStyle = {styles.SupprimerCompte}
                     buttonStyle = {{
                       backgroundColor: '#430D78',  
                       width:271,
@@ -65,42 +74,61 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   
-  Header:{
+  BackgroundHeader:{
     flex:2,
   },
 
-  PhotoProfil:{
+  FlexPhotoProfil:{
     flex: 4,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
-  NomTexte:{
-    fontSize: 25
+  PhotoProfil: {
+    height: 200,
+    width: 200
   },
 
-  NomUtilisateur:{
+
+
+  FlexNomUtilisateur:{
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     
   },
 
-  InfosUtilisateur:{
+
+  NomUtilisateur:{
+    fontSize: 25
+  },
+
+  
+
+  FlexInfosUtilisateur:{
     flex: 3,
     justifyContent: 'center',
     alignItems: 'center',
   },
 
-  StatsUtilisateur:{
+  InfosUtilisateur: {
+    fontSize : 13,
+    color: 'white'
+  },
+
+  FlexStatsUtilisateur:{
     flex: 4,
     backgroundColor: 'red'
 
   },
-  SupprimerCompte: {
+  FlexSupprimerCompte: {
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
     
   },
 
-  BoutonSupprimer: {
+  SupprimerCompte: {
     fontSize : 25,
   },
 })
