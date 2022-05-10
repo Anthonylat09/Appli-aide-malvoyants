@@ -10,6 +10,8 @@
     "c:c": "sh $PWD/scripts/create_react-native_component.sh"
   },
   "dependencies": {
+    "@react-navigation/drawer": "^6.4.1",
+    "@react-navigation/native": "^6.0.10",
     "@react-navigation/stack": "^6.2.1",
     "expo": "~44.0.2",
     "expo-linear-gradient": "^11.0.3",
