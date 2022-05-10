@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import { Button } from 'react-native-elements';
-import Background_4 from '../components/Background_4'
+import {Background_4} from '../components/Background_4'
 import LoginImg from '../assets/LoginImg.png'
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
+const Drawer = createDrawerNavigator()
+
 class ProfilePage extends Component 
 {  
   constructor(props)
@@ -18,6 +22,7 @@ class ProfilePage extends Component
           <>
             
             <Background_4/>
+            
             <View style = {styles.ContainerParent}>
               <View style = {styles.BackgroundHeader}/>
 
@@ -61,6 +66,7 @@ class ProfilePage extends Component
 
               </View>
             </View>
+            
           </>
       )
   }

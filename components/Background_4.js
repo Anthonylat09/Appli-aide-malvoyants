@@ -76,4 +76,4 @@ const styles = StyleSheet.create({
  
 });
 
-export default Background_4
+export  {Background_4}
