@@ -25,7 +25,7 @@ class ProfilePage extends Component
               </View>
              
               <View style = {styles.NomUtilisateur}>
-                <Text style = {styles.NomTexte}>{this.props.name}</Text>
+                <Text style = {styles.NomTexte}>Rew</Text>
               </View>
 
               <View style = {styles.InfosUtilisateur}>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
 
   PhotoProfil:{
-    flex: 3,
+    flex: 4,
   },
 
   NomTexte:{
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
 
   NomUtilisateur:{
     flex: 1,
+    
   },
 
   InfosUtilisateur:{
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
   },
 
   StatsUtilisateur:{
-    flex: 3,
+    flex: 4,
     backgroundColor: 'red'
 
   },
@@ -100,7 +101,6 @@ const styles = StyleSheet.create({
   },
 
   BoutonSupprimer: {
-    color : "red",
     fontSize : 25,
   },
 })
