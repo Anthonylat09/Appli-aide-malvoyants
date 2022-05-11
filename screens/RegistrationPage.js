@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button,Image, KeyboardAvoidingView,Animated,Keyboard } from 'react-native';
 import { ScrollView, TextInput, } from 'react-native-gesture-handler';
 import {Background_1} from '../components/Background_1'
-import {Card, Provider as PaperProvider} from 'react-native-paper'
 import { SafeAreaView } from 'react-navigation';
 import eye from '../assets/eye.png'
 import *as auth from 'firebase/auth'
+import {AddUser} from '../services/Users'
 let IMAGE_HEIGHT = 120
 let IMAGE_HEIGHT_SMALL = 100
 class Registration extends Component {
@@ -15,12 +15,13 @@ class Registration extends Component {
       this.keyboardHeight = new Animated.Value(0);
       this.imageHeight = new Animated.Value(IMAGE_HEIGHT);
       this.state = {
-        firstname:"",
-        lastName:"",
+        name:"",
         password:"",
         email:"",
         confirmedPassword:"",
         passwordVisibility:true,
+        image:"",
+        location:"",
         rightIcon:'eye'
         
 
@@ -98,8 +99,16 @@ class Registration extends Component {
         await auth.createUserWithEmailAndPassword(auth.getAuth(),email, password)
           .then(() => {
             console.log(auth.getAuth().currentUser);
-            const user = auth.currentUser;
+            const userID = auth.getAuth().currentUser.uid;
+            console.log("weshhhhh" + userID)
+            AddUser(userID,this.state.name, this.state.email, this.state.image, this.state.location).
+            then(() => { 
+              alert("bongoMan")
+            }).catch((error) => { 
+              alert(err);
+            })
             this.props.navigation.navigate('Login');
+            console.log("uhaubfuiabf")
 
           })
           .catch((error) => {
@@ -139,7 +148,7 @@ class Registration extends Component {
           
           <TextInput
           
-          defaultValue={this.state.email}
+          defaultValue={this.state.name}
           textContentType="name"
           placeholder="Nom"
           returnKeyType="next"
