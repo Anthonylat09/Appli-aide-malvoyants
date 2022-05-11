@@ -10,15 +10,20 @@ import CustomDrawer from '../components/CustomDrawer'
 import { Welcome } from '../screens/Welcome';
 
 const Drawer = createDrawerNavigator()
+
+
 class DrawerScreen extends React.Component {
     render() {
-    return 
+    return (
+      <>
+    <NavigationContainer independent = {true}>
     <Drawer.Navigator
       
       drawerContent={props => <CustomDrawer {...props} />}
       drawerContentOptions={{
         itemStyle: { marginVertical: 5},
-      }} screenOptions={{
+      }} 
+      screenOptions={{
         headerShown: false,
         drawerActiveBackgroundColor: '#8659B4',
         drawerActiveTintColor: '#fff',
@@ -37,7 +42,9 @@ class DrawerScreen extends React.Component {
         component={ProfilePage} />
       
     </Drawer.Navigator>
-   ;}
+    </NavigationContainer>
+    </>
+   )}
       
   }
 

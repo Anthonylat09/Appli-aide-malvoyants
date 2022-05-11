@@ -10,6 +10,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Login } from './screens/Login';
 import { Background_2 } from './components/Background_2';
 import { Registration } from './screens/RegistrationPage';
+import { DrawerScreen } from './navigation/DrawerScreen';
 let log = Login
 let back = Background_1
 let HP = HomePage
@@ -18,9 +19,8 @@ let choice = ChoicesPage
 let back2 = Background_2
 export default  class App extends React.Component {
   render() {
-    return <NavigationContainer> 
-    <MyStack/>
-  </NavigationContainer>;}  
+    return <DrawerScreen/>;
+  }  
 }   
 const Stack = createStackNavigator();
 const MyStack = () => 
@@ -38,9 +38,7 @@ const MyStack = () =>
 
       <Stack.Screen name = "Sign Up" component = {reg}/>
 
-      <Stack.Screen name = "Welcome" component = {Welcome}/>
-
-      <Stack.Screen name = "Profile" component = {ProfilePage}/>
+      <Stack.Screen name = "Drawer" component = {DrawerScreen}/>
 
     </Stack.Navigator>
   ) 

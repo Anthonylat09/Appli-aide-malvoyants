@@ -4,8 +4,7 @@ import { Button } from 'react-native-elements';
 import {Background_4} from '../components/Background_4'
 import LoginImg from '../assets/LoginImg.png'
 import { createDrawerNavigator } from '@react-navigation/drawer';
-
-const Drawer = createDrawerNavigator()
+import { Background_2 } from '../components/Background_2';
 
 class ProfilePage extends Component 
 {  
@@ -21,7 +20,7 @@ class ProfilePage extends Component
       return(
           <>
             
-            <Background_4/>
+            <Background_4 navigation = {this.props.navigation}/>
             
             <View style = {styles.ContainerParent}>
               <View style = {styles.BackgroundHeader}/>
