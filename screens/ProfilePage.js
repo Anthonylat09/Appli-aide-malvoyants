@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+
 import { Button } from 'react-native-elements';
 import {Background_4} from '../components/Background_4'
 import LoginImg from '../assets/LoginImg.png'
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Background_2 } from '../components/Background_2';
+import eye from '../assets/eye.png';
 
 class ProfilePage extends Component 
 {  
@@ -20,10 +22,31 @@ class ProfilePage extends Component
       return(
           <>
             
-            <Background_4 navigation = {this.props.navigation}/>
+            <Background_4/>
             
             <View style = {styles.ContainerParent}>
-              <View style = {styles.BackgroundHeader}/>
+              <View style = {styles.BackgroundHeader}>
+                <View style = {styles.EyeBarsAndText}>
+                  <View style = {styles.FlexBars}>
+                    <TouchableOpacity style = {styles.Bars} 
+                                      onPress={()=> this.props.navigation.openDrawer()}> 
+                      <Icon name="bars" size={32} />
+
+                    </TouchableOpacity>
+                  </View>
+
+                  <View style = {styles.FlexText}>
+                    <Text style = {{fontSize: 32,
+                                    }}>Profil</Text>
+                  </View>
+
+                  <View style = {styles.FlexEye}>
+                    <Image source = {eye} style = {styles.Eye}/> 
+                  </View>
+                </View>
+              
+
+              </View>
 
               <View style = {styles.FlexPhotoProfil}>
                 <Image source = {LoginImg} style = {styles.PhotoProfil}/>
@@ -61,7 +84,7 @@ class ProfilePage extends Component
                       height:55,
                     }}
                     title= "Supprimer le compte"
-                    onPress = {() => this.props.navigation.navigate('Login')}/>
+                    onPress = {() => this.props.navigation.navigate('Welcome')}/>
 
               </View>
             </View>
@@ -75,18 +98,47 @@ export {ProfilePage}
 const styles = StyleSheet.create({
   ContainerParent: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   
   BackgroundHeader:{
     flex:2,
+    borderWidth: 3
   },
+
+  EyeBarsAndText: {
+    backgroundColor: '#8659B4',
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-end'
+
+  },
+
+  FlexBars: {
+    flex: 1,
+    flexDirection: 'row',
+
+  },
+
+  FlexEye: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+
+  FlexText: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+
+
 
   FlexPhotoProfil:{
     flex: 4,
+    alignItems:'center',
     justifyContent: 'center',
-    alignItems: 'center',
+    borderWidth: 3
+   
   },
 
   PhotoProfil: {
@@ -100,6 +152,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 3
     
   },
 
@@ -114,6 +167,7 @@ const styles = StyleSheet.create({
     flex: 3,
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 3
   },
 
   InfosUtilisateur: {
@@ -123,7 +177,7 @@ const styles = StyleSheet.create({
 
   FlexStatsUtilisateur:{
     flex: 4,
-    backgroundColor: 'red'
+    borderWidth: 3,
 
   },
   FlexSupprimerCompte: {
@@ -136,4 +190,16 @@ const styles = StyleSheet.create({
   SupprimerCompte: {
     fontSize : 25,
   },
+
+  Bars :
+  {  
+    width: 40,
+    height: 38,
+  },
+
+  Eye : 
+  {
+    width: 40,
+    height: 38,
+  }
 })

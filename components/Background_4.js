@@ -19,22 +19,6 @@ class Background_4 extends Component {
         return (
             <>
         <View style = {styles.container}/>
-        <View style = {styles.choix1}/> 
-        <View  style = {{ position: 'absolute',
-                                  alignItems: "center",
-                                  flexDirection: 'row', 
-                                  justifyContent: 'center',
-                                  top: '7.5%'
-                                }}>
-                                  
-           <TouchableOpacity style = {styles.littleEye2} 
-                             onPress={()=> this.props.navigation.openDrawer()}> 
-           <Icon name="bars" size={32} />
-           </TouchableOpacity>
-           <Image source = {eye} style = {styles.littleEye}/> 
-
-        
-        </View>
         
         </>
         );
@@ -49,29 +33,7 @@ const styles = StyleSheet.create({
       width:"100%",
       height:"100%",
     },
-    choix1: 
-  {
-    position: 'absolute',
-    width:"100%",
-    height:"12.5%",
-    backgroundColor: '#8659B4',
-    
 
-  },
-  littleEye2 :
-  { 
-    
-    width: 40,
-    height: 38,
-    left: '30%'
-    
-  },
-  littleEye : 
-  {
-    width: 40,
-    height: 38,
-    left: '750%',
-  }
  
 });
 
