@@ -123,12 +123,4 @@ class HomePage extends Component {
     },
   
   });
-  function App2 ()
-  {
-    return (
-      <NavigationContainer> 
-        <MyStack/>
-      </NavigationContainer>
-    )
-  }
   export { HomePage}

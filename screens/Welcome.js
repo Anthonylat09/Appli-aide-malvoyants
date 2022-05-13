@@ -2,13 +2,15 @@ import React ,{Component} from "react";
 import {TouchableOpacity, StyleSheet, Text, Image, View} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import eye from '../assets/eye.png';
-
+import undrawPedestrian from '../assets/undraw_pedestrian_crossing_l-6-jv.png';
+import {Button} from 'react-native-elements'
 class Welcome extends Component{
     constructor(props)
     {
         super(props)
         this.state = {
-      
+          availablePepole : "Nombre de personnes disponibles pour aider : 255000",
+          welcomeText: "En appuyant sur le bouton ci-dessous, ou en utilisant l’assistance vocale, vous pourrez faire appel à quelqu’un pour vous aider, soit par visio, soit en faisant appel à quelqu’un qui n’est pas loin de vous geographiquement parlant."
     }
   }
 
@@ -40,20 +42,26 @@ class Welcome extends Component{
               </View>
 
               <View style = {styles.FlexTexteAccueil}>
-  
+                <Text style = {styles.TexteAccueil}>{this.state.availablePepole}</Text>
+                <Text style = {styles.TexteAccueil}>{this.state.welcomeText}</Text>
               </View>
              
               <View style = {styles.FlexAide}>
+                <Button title= "Demander de   l'aide"
+                        titleStyle = {{
+                          fontSize: 32
+                        }}
 
-              </View>
-
-              <View style = {styles.FlexInfosUtilisateur}>
-               
-                
+                        buttonStyle = {{
+                          backgroundColor: '#430D78',
+                          height: 100,
+                          width: 290
+                        }}
+                        />
               </View>
 
               <View style = {styles.FlexIllustration}>
-
+                <Image source = {undrawPedestrian} style = {styles.Illustration}/> 
               </View>
               
             </View>
@@ -70,7 +78,6 @@ const styles = StyleSheet.create({
     
     BackgroundHeader:{
       flex:2,
-      borderWidth: 3
     },
   
     EyeBarsAndText: {
@@ -117,22 +124,20 @@ const styles = StyleSheet.create({
       flex: 6,
       alignItems:'center',
       justifyContent: 'center',
-      borderWidth: 3
      
     },
   
     TexteAccueil: {
-      height: 200,
-      width: 200
+      fontSize: 20,
+      textAlign:'center'
     },
   
   
   
     FlexAide:{
-      flex: 2,
+      flex: 3,
       justifyContent: 'center',
       alignItems: 'center',
-      borderWidth: 3
       
     },
   
@@ -144,15 +149,14 @@ const styles = StyleSheet.create({
     
   
     FlexIllustration:{
-      flex: 6,
+      flex: 5,
       justifyContent: 'center',
       alignItems: 'center',
-      borderWidth: 3
     },
   
     Illustration: {
-      fontSize : 13,
-      color: 'white'
+      height: 155,
+      width: 286
     },
   
   
