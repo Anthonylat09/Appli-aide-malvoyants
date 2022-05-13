@@ -91,7 +91,7 @@ class Login extends Component {
         .then(() => {
           console.log("wesh")        
         const user = auth.getAuth().currentUser;
-        this.props.navigation.navigate('Choices')
+        this.props.navigation.navigate('Results')
         console.log(user)}) 
       }
      const handleSubmit = async () => {

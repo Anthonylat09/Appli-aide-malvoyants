@@ -28,7 +28,39 @@ class Registration extends Component {
       }
          
 
-    } 
+    }
+    async componentDidMount () 
+  {
+      try {
+          reference = ref(db,'/users');
+
+        
+              const uid = auth.getAuth().currentUser.uid;
+              let users =[];
+             await onValue(reference, (datasnapchot) => {
+                datasnapchot.forEach((child) => {
+                if(val().uid = uid)
+                {
+                    
+                }
+                else {
+                    users.push ({
+                        name:child.val
+                    })
+                }
+            }
+                )
+                
+
+             })
+             console.log(users)
+          
+      } catch (error) {
+          alert(error)
+          
+      }
+  }
+
     UNSAFE_componentWillMount () {
       this.keyboardWillShowSub = Keyboard.addListener('keyboardWillShow', this.keyboardWillShow);
       this.keyboardWillHideSub = Keyboard.addListener('keyboardWillHide', this.keyboardWillHide);
@@ -88,6 +120,10 @@ class Registration extends Component {
       const handleEmailChange = (text) => 
       {
         this.setState({email:text})
+      } 
+      const handleNameChange = (text) => 
+      {
+        this.setState({name:text})
       } 
 
       //handles password input 
@@ -150,6 +186,7 @@ class Registration extends Component {
           
           defaultValue={this.state.name}
           textContentType="name"
+          onChangeText={handleNameChange}
           placeholder="Nom"
           returnKeyType="next"
           style = {styles.TextInput}
