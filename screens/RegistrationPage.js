@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-navigation';
 import eye from '../assets/eye.png'
 import *as auth from 'firebase/auth'
 import {AddUser} from '../services/Users'
+
 let IMAGE_HEIGHT = 120
 let IMAGE_HEIGHT_SMALL = 100
 class Registration extends Component {
@@ -29,37 +30,7 @@ class Registration extends Component {
          
 
     }
-    async componentDidMount () 
-  {
-      try {
-          reference = ref(db,'/users');
-
-        
-              const uid = auth.getAuth().currentUser.uid;
-              let users =[];
-             await onValue(reference, (datasnapchot) => {
-                datasnapchot.forEach((child) => {
-                if(val().uid = uid)
-                {
-                    
-                }
-                else {
-                    users.push ({
-                        name:child.val
-                    })
-                }
-            }
-                )
-                
-
-             })
-             console.log(users)
-          
-      } catch (error) {
-          alert(error)
-          
-      }
-  }
+  
 
     UNSAFE_componentWillMount () {
       this.keyboardWillShowSub = Keyboard.addListener('keyboardWillShow', this.keyboardWillShow);
@@ -134,9 +105,7 @@ class Registration extends Component {
       const handleSignUp = async (email, password) => {
         await auth.createUserWithEmailAndPassword(auth.getAuth(),email, password)
           .then(() => {
-            console.log(auth.getAuth().currentUser);
             const userID = auth.getAuth().currentUser.uid;
-            console.log("weshhhhh" + userID)
             AddUser(userID,this.state.name, this.state.email, this.state.image, this.state.location).
             then(() => { 
               alert("bongoMan")
@@ -144,7 +113,6 @@ class Registration extends Component {
               alert(err);
             })
             this.props.navigation.navigate('Login');
-            console.log("uhaubfuiabf")
 
           })
           .catch((error) => {

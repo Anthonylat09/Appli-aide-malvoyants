@@ -89,10 +89,9 @@ class Login extends Component {
       {
         auth.signInWithEmailAndPassword(auth.getAuth(),this.state.email,this.state.password)
         .then(() => {
-          console.log("wesh")        
         const user = auth.getAuth().currentUser;
         this.props.navigation.navigate('Results')
-        console.log(user)}) 
+        })
       }
      const handleSubmit = async () => {
         if (this.state.email === "" || this.state.password === "") {

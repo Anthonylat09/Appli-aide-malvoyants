@@ -5,7 +5,7 @@ export const db = getDatabase()
 export const AddUser = async (uid, name, email, image,location) => {
 
     try {
-      const reference = ref(db,'/users' + uid)
+      const reference = ref(db,'users/' + uid)
       console.log(reference)
         set (reference,
             {

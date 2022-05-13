@@ -8,9 +8,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Login } from './screens/Login';
 import { Background_2 } from './components/Background_2';
 import { Registration } from './screens/RegistrationPage';
-//import {SearchResult} from './screens/SearchResult';
+import {SearchResult} from './screens/SearchResult';
 let log = Login
-//let search = SearchResult
+let search = SearchResult
 let back = Background_1
 let HP = HomePage
 let reg = Registration
@@ -40,6 +40,8 @@ const MyStack = () =>
       <Stack.Screen name = "Login" component = {log}/>
 
       <Stack.Screen name = "Sign Up" component = {reg}/>
+      <Stack.Screen name = "Results" component = {search}/>
+
       
 
 
