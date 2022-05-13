@@ -1,6 +1,6 @@
 import React from "react";
 import {View, Text,Image, ImageBackground} from 'react-native';
-import { DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
+import { DrawerContentScrollView, DrawerItemList,DrawerItem } from "@react-navigation/drawer";
 const CustomDrawer = (props) => {
     return (
         <View style = {{flex:1}}>

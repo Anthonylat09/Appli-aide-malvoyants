@@ -8,7 +8,7 @@ import { Background_2 } from '../components/Background_2';
 import { ProfilePage } from '../screens/ProfilePage';
 import CustomDrawer from '../components/CustomDrawer'
 import { Welcome } from '../screens/Welcome';
-
+import Ionicons from 'react-native-vector-icons/Ionicons'
 const Drawer = createDrawerNavigator()
 
 
@@ -20,6 +20,7 @@ class DrawerScreen extends React.Component {
     <Drawer.Navigator
       
       drawerContent={props => <CustomDrawer {...props} />}
+
       drawerContentOptions={{
         itemStyle: { marginVertical: 5},
       }} 
@@ -28,19 +29,25 @@ class DrawerScreen extends React.Component {
         drawerActiveBackgroundColor: '#8659B4',
         drawerActiveTintColor: '#fff',
         drawerInactiveBackgroundColor: '#fff',
-        drawerInactiveTintColor: '#000'
+        drawerInactiveTintColor: '#000',
       }}>
-        
       <Drawer.Screen
         name="Welcome"
-        options={{ drawerLabel: 'Accueil' }}
+        options={{ drawerLabel: 'Accueil',
+                   drawerIcon: ({color}) => (
+                     <Ionicons name = "home-outline" size = {22} color = {color}/>
+                   )}}
         component={Welcome} />
 
       <Drawer.Screen
         name="Profil"
-        options={{ drawerLabel: 'Profil' }}
+        options={{ drawerLabel: 'Profil',
+                   drawerIcon: ({color}) => (
+                    <Ionicons name = "person-outline" size = {22} color = {color}/>
+        )}
+       }
         component={ProfilePage} />
-      
+
     </Drawer.Navigator>
     </NavigationContainer>
     </>
