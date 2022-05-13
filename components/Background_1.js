@@ -21,32 +21,30 @@ class Background_1 extends React.Component {
 }
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        position: 'absolute',
+        height: '100%',
+        width: '100%',
         backgroundColor: "#E5d5E6",
       },
       Circle1: {
-        position: 'absolute',
-        left: 41,
-       
+        position: 'absolute',  
         top : -100,
+        left:10,
         width: 165,
         height: 165,
-        left:10,
         borderRadius: 82.4,
-        backgroundColor: '#9D69FA',
-        opacity: 0.7
+        backgroundColor: '#7D00FA',
+        opacity: 0.3
       },
       Circle2: {
         position: 'absolute',       
         top : -40,
+        left:-50,
         width: 165,
         height: 165,
-        left:-50,
         borderRadius: 82.4,
-        backgroundColor: '#9D69FA',
-        opacity: 0.7
+        backgroundColor: '#7D00FA',
+        opacity: 0.3
       }
 });
 export {Background_1}
