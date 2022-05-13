@@ -2,13 +2,15 @@ import { createStackNavigator, createAppContainer} from '@react-navigation/stack
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {Background_1} from './components/Background_1'
-import {HomePage,App2} from './screens/HomePage'
+import {HomePage} from './screens/HomePage'
 import {ChoicesPage}  from './screens/ChoicesPage'
 import { NavigationContainer } from '@react-navigation/native';
 import { Login } from './screens/Login';
 import { Background_2 } from './components/Background_2';
 import { Registration } from './screens/RegistrationPage';
+import {SearchResult} from './screens/SearchResult';
 let log = Login
+let search = SearchResult
 let back = Background_1
 let HP = HomePage
 let reg = Registration
@@ -21,6 +23,7 @@ export default  class App extends React.Component {
 </NavigationContainer>;}
     
 }   
+
 const Stack = createStackNavigator();
 const MyStack = () => 
 {
@@ -37,6 +40,10 @@ const MyStack = () =>
       <Stack.Screen name = "Login" component = {log}/>
 
       <Stack.Screen name = "Sign Up" component = {reg}/>
+      <Stack.Screen name = "Results" component = {search}/>
+
+      
+
 
     </Stack.Navigator>
   ) 
