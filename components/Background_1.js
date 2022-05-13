@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         height: 165,
         borderRadius: 82.4,
         backgroundColor: '#7D00FA',
-        opacity: 0.3
+      opacity: 0.3
       },
       Circle2: {
         position: 'absolute',       

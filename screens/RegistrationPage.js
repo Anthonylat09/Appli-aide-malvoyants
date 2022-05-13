@@ -170,14 +170,16 @@ class Registration extends Component {
         
           
         <>
-        <Background_1/>
-
+        
+        <View style = {{flex: 1}}/>      
+        <Background_1/>  
         <KeyboardAvoidingView
         style = {styles.container} 
         automaticallyAdjustContentInsets = {true}
         alwaysBounceVertical = {false}
 
         >
+
         <Animated.Image source={eye} style ={[styles.Eye, {height:this.imageHeight},{width:this.imageHeight}] }/>
         <Text style = {styles.title}> Bienvenue !</Text>
         <SafeAreaView style = {[styles.inputView, {top:-500}]}>
@@ -272,7 +274,7 @@ class Registration extends Component {
 
         
         </KeyboardAvoidingView>
-      
+       
         
         
         
