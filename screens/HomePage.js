@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button,Image } from 'react-native';
+import { StyleSheet, Text, View,Image } from 'react-native';
+import { Button } from 'react-native-elements';
 import {Background_1} from '../components/Background_1'
 import { createStackNavigator, createAppContainer} from '@react-navigation/stack';
 import { ChoicesPage } from './ChoicesPage';
@@ -13,8 +14,8 @@ class HomePage extends Component {
     {
       super(props)
       this.state = {
-        Headertext: 'Avec NAIsee, voyez \nle monde différemment',
-        BottomText: 'Vous êtes malvoyants ou vous voulez aider un mal voyant à se repérer? Cette application est faite pour vous.'
+        Headertext: 'Avec NAIsee, voyez \nle monde\n différemment',
+        BottomText: 'Vous êtes malvoyants ou vous\n voulez aider un mal voyant à se\n repérer? Cette application est\n faite pour vous.'
       }
     } 
     
@@ -23,36 +24,34 @@ class HomePage extends Component {
         
           
         <> 
-        <Background_1/>
+        <View style = {styles.container}>
+          <Background_1/>
         
-        <View style={styles.headerContainer}>
+          <View style={styles.headerContainer}>
 
-        <Text style = {styles.headerText}>{this.state.Headertext }</Text>
+            <Text style = {styles.headerText}>{this.state.Headertext }</Text>
 
-        </View>
+          </View>
 
-        <View style = {styles.eyeContainer}>
+          <View style = {styles.eyeContainer}>
 
-        <Image source = {eye} style = {styles.Eye}></Image>
+            <Image source = {eye} style = {styles.Eye}></Image>
 
-        </View>
+          </View>
 
-        <View style = {styles.bottomContainer}>
+          <View style = {styles.bottomContainer}>
 
-        <Text style = {styles.bottomText}> {this.state.BottomText } </Text>
+            <Text style = {styles.bottomText}> {this.state.BottomText } </Text>
 
-        </View>
+          </View>
 
-         <View style = {{ 
-                  position:'absolute',
-                  width:319,
-                  height:41,
-                  left: 36,
-                  top:733,    
-                  backgroundColor: '#240071F5',
-                  borderRadius: 10}}>
+          <View style = {styles.BoutonCommencerContainer}>
                   
-                  <Button color = "#fff" title = "Commencer" onPress = {() => this.props.navigation.navigate('Choices')} /> 
+                  <Button buttonStyle = {styles.BoutonCommencer}
+                          title = 'Commencer'
+                          onPress = {() => this.props.navigation.navigate('Choices')} /> 
+          </View>
+
           </View>
 
         </>
@@ -71,14 +70,15 @@ class HomePage extends Component {
 
 
  const styles = StyleSheet.create({
+   container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: 'center',
+   },
     headerContainer: {
-      position: 'absolute',
-      justifyContent: "center",
+      flex: 6,
+      justifyContent: "flex-end",
       alignItems: "center",
-      width:325,
-      height:165,
-      left:32,
-      top:135,
     },
     headerText: {
       
@@ -91,12 +91,10 @@ class HomePage extends Component {
     }, 
     
     bottomContainer:{
-      position: 'absolute',
-      width:332,
-      height:176,
-      left:32,
-      top:500,
-      textAlign: 'center'
+      flex: 4,
+      justifyContent: "center",
+      alignItems: "center",
+
     },
     bottomText: {
       position: 'absolute', 
@@ -112,15 +110,27 @@ class HomePage extends Component {
     },
 
     eyeContainer:{
-      position:'absolute',
-      top: 319,
-      left: 120,
+      flex: 4,
+      justifyContent: "center",
+      alignItems: "center",
     },
     Eye: {
       width: 150,
       height: 150,
       resizeMode: 'stretch',
     },
+
+    BoutonCommencerContainer: {
+      flex: 2,
+      justifyContent: "flex-start",
+      alignItems: "center"
+    },
+
+    BoutonCommencer: {
+      backgroundColor: '#430D78',
+      width: 320,
+      height: 40
+    }
   
   });
   function App2 ()
