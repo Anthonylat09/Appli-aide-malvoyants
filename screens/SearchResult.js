@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import eye from '../assets/eye.png';
 import *as auth from 'firebase/auth'
 import {ref,getDatabase,set, onValue,val, child, DataSnapshot} from 'firebase/database'
+import { useLocation } from "../services/useLocation";
 export const db = getDatabase()
 class SearchResult extends Component{
     constructor(props)
@@ -37,6 +38,7 @@ class SearchResult extends Component{
                     userName:child.val().name
                 })
                 console.log('yess')
+                console.log(useLocation())
                 }
             }
                 )

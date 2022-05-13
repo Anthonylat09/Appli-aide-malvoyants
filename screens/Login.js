@@ -5,7 +5,8 @@ import {Background_1} from '../components/Background_1'
 import { SafeAreaView } from 'react-navigation'
 import LoginImg from '../assets/LoginImg.png'
 import app from '../services/Firebase'
-import {collection} from'firebase/firestore'
+import {useLocation} from '../services/useLocation'
+
 import *as auth from 'firebase/auth'
 import { Background_3 } from '../components/Background_3';
 let IMAGE_HEIGHT = 170
