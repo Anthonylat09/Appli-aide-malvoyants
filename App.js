@@ -2,7 +2,7 @@ import { createStackNavigator, createAppContainer} from '@react-navigation/stack
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {Background_1} from './components/Background_1'
-import {HomePage,App2} from './screens/HomePage'
+import {HomePage} from './screens/HomePage'
 import {ChoicesPage}  from './screens/ChoicesPage'
 import {ProfilePage}  from './screens/ProfilePage'
 import { Welcome } from './screens/Welcome';
@@ -12,6 +12,7 @@ import { Background_2 } from './components/Background_2';
 import { Registration } from './screens/RegistrationPage';
 import { DrawerScreen } from './navigation/DrawerScreen';
 let log = Login
+let search = SearchResult
 let back = Background_1
 let HP = HomePage
 let reg = Registration
@@ -22,6 +23,7 @@ export default  class App extends React.Component {
     return <DrawerScreen/>;
   }  
 }   
+
 const Stack = createStackNavigator();
 const MyStack = () => 
 {
@@ -37,6 +39,10 @@ const MyStack = () =>
       <Stack.Screen name = "Login" component = {log}/>
 
       <Stack.Screen name = "Sign Up" component = {reg}/>
+      <Stack.Screen name = "Results" component = {search}/>
+
+      
+
 
       <Stack.Screen name = "Drawer" component = {DrawerScreen}/>
 

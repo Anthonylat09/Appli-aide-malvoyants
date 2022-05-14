@@ -16,31 +16,41 @@ class ChoicesPage extends Component
   render() 
   {
     return ( 
-      <><Background_1 />
-        <View style = {styles.choix1}>
-        <Button titleStyle = {styles.buttons}
-                buttonStyle = {{
-                  backgroundColor: "",
-                }}
-                title= {this.state.HeaderText} 
-                onPress = {() => this.props.navigation.navigate('Login')}/>
-        </View>
-
-        <View style = {styles.choix2}>
-        <Button titleStyle = {styles.buttons}
-                buttonStyle = {{
-                  backgroundColor: "",
-                }}
-                title= {this.state.BottomText} 
-                onPress = {() => this.props.navigation.navigate('Login')}/>
-        </View>
+      <>
         
+        <View style = {styles.container}>
+        <Background_1 />
+          <View style = {{flex: 1}}>
+          </View>
+          <View style = {{flex: 1,
+                          justifyContent: 'center'}}>
+          <Button titleStyle = {styles.buttons}
+                  buttonStyle = {styles.choix1}
+                  title= {this.state.HeaderText} 
+                  onPress = {() => this.props.navigation.navigate('Login')}/>
+          </View>
+
+          <View style = {{flex: 1,
+                          justifyContent: 'center'}}>
+          <Button titleStyle = {styles.buttons}
+                 buttonStyle = {styles.choix2}
+                 title= {this.state.BottomText} 
+                  onPress = {() => this.props.navigation.navigate('Login')}/>
+          </View>
+          <View style = {{flex: 1}}/>
+        </View>
     </>
     );   
   }
 }
 
 const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: 'center',
+
+    },
 
     buttons: {
       color : "white",
@@ -48,30 +58,39 @@ const styles = StyleSheet.create({
     },
 
     choix1: {
-    position: 'absolute',
+    backgroundColor: '#430D78',
     width:340,
     height:145,
-    left:21,
-    top:210,
-    backgroundColor: '#430D78',
     borderRadius: 10,
     justifyContent: "center",
-    padding: 16
 
    },
 
   choix2: {
-    position: 'absolute',
+    backgroundColor: '#430D78',
     width:340,
     height:145,
-    left:21,
-    top:465,
-    backgroundColor: '#430D78',
     borderRadius: 10,
     justifyContent: "center",
-    padding: 16
 
    },
+
+   Circle1: {
+    position: 'relative',
+    width: 165,
+    height: 165,
+    borderRadius: 82.4,
+    backgroundColor: '#7D00FA',
+    opacity: 0.3
+  },
+  Circle2: {
+    position: 'relative', 
+    width: 165,
+    height: 165,
+    borderRadius: 82.4,
+    backgroundColor: '#7D00FA',
+    opacity: 0.3
+  }
 
  
 });

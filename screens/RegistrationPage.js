@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button,Image, KeyboardAvoidingView,Animated,Keyboard } from 'react-native';
 import { ScrollView, TextInput, } from 'react-native-gesture-handler';
 import {Background_1} from '../components/Background_1'
-import {Card, Provider as PaperProvider} from 'react-native-paper'
 import { SafeAreaView } from 'react-navigation';
-import { handleSignUp } from "../services/Firebase";
 import eye from '../assets/eye.png'
-let IMAGE_HEIGHT = 135
-let IMAGE_HEIGHT_SMALL = 120
+import *as auth from 'firebase/auth'
+import {AddUser} from '../services/Users'
+
+let IMAGE_HEIGHT = 120
+let IMAGE_HEIGHT_SMALL = 100
 class Registration extends Component {
     constructor(props)
     {
@@ -15,19 +16,22 @@ class Registration extends Component {
       this.keyboardHeight = new Animated.Value(0);
       this.imageHeight = new Animated.Value(IMAGE_HEIGHT);
       this.state = {
-        firstname:"",
-        lastName:"",
+        name:"",
         password:"",
         email:"",
         confirmedPassword:"",
         passwordVisibility:true,
+        image:"",
+        location:"",
         rightIcon:'eye'
         
 
       }
          
 
-    } 
+    }
+  
+
     UNSAFE_componentWillMount () {
       this.keyboardWillShowSub = Keyboard.addListener('keyboardWillShow', this.keyboardWillShow);
       this.keyboardWillHideSub = Keyboard.addListener('keyboardWillHide', this.keyboardWillHide);
@@ -88,12 +92,33 @@ class Registration extends Component {
       {
         this.setState({email:text})
       } 
+      const handleNameChange = (text) => 
+      {
+        this.setState({name:text})
+      } 
 
       //handles password input 
       const handlePasswordChange = (text) => 
       {
         this.setState({password:text})
       } 
+      const handleSignUp = async (email, password) => {
+        await auth.createUserWithEmailAndPassword(auth.getAuth(),email, password)
+          .then(() => {
+            const userID = auth.getAuth().currentUser.uid;
+            AddUser(userID,this.state.name, this.state.email, this.state.image, this.state.location).
+            then(() => { 
+              alert("bongoMan")
+            }).catch((error) => { 
+              alert(err);
+            })
+            this.props.navigation.navigate('Login');
+
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      };
       //Handles sign up
       const handleSubmit = async () => {
 
@@ -102,7 +127,6 @@ class Registration extends Component {
         } else {
           try {
             await handleSignUp(this.state.email, this.state.password);
-            this.props.navigation.navigate('Login');
 
           } catch (error) {
             console.error(error);
@@ -114,22 +138,25 @@ class Registration extends Component {
         
           
         <>
-        <Background_1/>
-
+        
+        <View style = {{flex: 1}}/>      
+        <Background_1/>  
         <KeyboardAvoidingView
         style = {styles.container} 
         automaticallyAdjustContentInsets = {true}
         alwaysBounceVertical = {false}
 
         >
+
         <Animated.Image source={eye} style ={[styles.Eye, {height:this.imageHeight},{width:this.imageHeight}] }/>
         <Text style = {styles.title}> Bienvenue !</Text>
         <SafeAreaView style = {[styles.inputView, {top:-500}]}>
           
           <TextInput
           
-          defaultValue={this.state.email}
+          defaultValue={this.state.name}
           textContentType="name"
+          onChangeText={handleNameChange}
           placeholder="Nom"
           returnKeyType="next"
           style = {styles.TextInput}
@@ -215,7 +242,7 @@ class Registration extends Component {
 
         
         </KeyboardAvoidingView>
-      
+       
         
         
         

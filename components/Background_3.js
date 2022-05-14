@@ -23,7 +23,7 @@ class Background_3 extends React.Component {
 }
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 3,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#E4D5E4",
