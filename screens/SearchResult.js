@@ -3,6 +3,7 @@ import {TouchableOpacity, StyleSheet, Text, Image, View} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import eye from '../assets/eye.png';
 import *as auth from 'firebase/auth'
+import { UpdateEvery, UpdateUserLocation } from "../services/useLocation";
 import {ref,getDatabase,set, onValue,val, child, DataSnapshot} from 'firebase/database'
 import { getLocation } from "../services/useLocation";
 export const db = getDatabase()
@@ -18,11 +19,11 @@ class SearchResult extends Component{
 
   async componentDidMount () 
   {
-    const location = getLocation()
-    location
+    
    
       try {
         let db = getDatabase()
+        
 
         
               const uid = auth.getAuth().currentUser.uid;
@@ -38,7 +39,7 @@ class SearchResult extends Component{
                   console.log('yesss')
                     
                 }
-                else {
+                else {  
                   users.push ({
                     userName:child.val().name
                 })
@@ -53,6 +54,8 @@ class SearchResult extends Component{
              this.setState({
                results:users
              })
+             UpdateEvery(uid)
+            
              
           
       } catch (error) {
