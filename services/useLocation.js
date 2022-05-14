@@ -1,27 +1,24 @@
- 
-import { useEffect, useState } from "react";
 import * as Location from "expo-location";
 
-
-export const useLocation = () => {
-  const [location, setLocation] = useState();
-
-  const getLocation = async () => {
+  export const getLocation = async () => {
     try {
-      const { granted } = await Location.requestPermissionsAsync();
-      if (!granted) return;
-      const {
+      const { granted } = await Location.requestForegroundPermissionsAsync();
+     // const { granted2 } = await Location.requestBackgroundPermissionsAsync();
+
+      
+      if (!granted /*&& !granted2*/ ) return;
+     /* const {
         coords: { latitude, longitude },
-      } = await Location.getCurrentPositionAsync();
-      setLocation({ latitude, longitude });
+      }*/
+     let location  = await Location.getCurrentPositionAsync();
+     console.log("location" + JSON.stringify(location))
+    //const { granted2 } = await Location.requestBackgroundPermissionsAsync();
+
     } catch (error) {
       console.log(error);
+      console.log("yeahhhhh")
     }
   };
-
-  useEffect(() => {
-    getLocation();
-  }, []);
-
-  return location;
-};
+  var intervalId = window.setInterval(function(){
+    getLocation()
+  }, 500000);

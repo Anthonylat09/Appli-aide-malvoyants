@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import eye from '../assets/eye.png';
 import *as auth from 'firebase/auth'
 import {ref,getDatabase,set, onValue,val, child, DataSnapshot} from 'firebase/database'
-import { useLocation } from "../services/useLocation";
+import { getLocation } from "../services/useLocation";
 export const db = getDatabase()
 class SearchResult extends Component{
     constructor(props)
@@ -13,9 +13,14 @@ class SearchResult extends Component{
         this.state = {
       
     }
+  
   }
+
   async componentDidMount () 
   {
+    const location = getLocation()
+    location
+   
       try {
         let db = getDatabase()
 
@@ -38,7 +43,6 @@ class SearchResult extends Component{
                     userName:child.val().name
                 })
                 console.log('yess')
-                console.log(useLocation())
                 }
             }
                 )
@@ -49,6 +53,7 @@ class SearchResult extends Component{
              this.setState({
                results:users
              })
+             
           
       } catch (error) {
           alert(error)
@@ -58,51 +63,11 @@ class SearchResult extends Component{
 
   render(){
     return (
+        
         <>
-        <View style = {styles.ContainerParent}>
-            <View style = {styles.BackgroundHeader}>
-              <View style = {styles.EyeBarsAndText}>
-                <View style = {styles.FlexBars}>
-                  <TouchableOpacity style = {styles.Bars} 
-                                    onPress={()=> this.props.navigation.openDrawer()}> 
-                    <Icon name="bars" size={32} />
-
-                  </TouchableOpacity>
-                </View>
-
-                <View style = {styles.FlexText}>
-                  <Text style = {{fontSize: 32,
-                                  }}>Accueil</Text>
-                </View>
-
-                <View style = {styles.FlexEye}>
-                  <Image source = {eye} style = {styles.Eye}/> 
-                </View>
-              </View>
-            
-
-            </View>
-
-            <View style = {styles.FlexTexteAccueil}>
-
-            </View>
-           
-            <View style = {styles.FlexAide}>
-
-            </View>
-
-            <View style = {styles.FlexInfosUtilisateur}>
-             
-              
-            </View>
-
-            <View style = {styles.FlexIllustration}>
-
-            </View>
-            
-          </View>
-          
-        </>
+     <Text></Text>
+    </>
+        
     )
 }
 }          
