@@ -7,33 +7,34 @@ import eye from '../assets/eye.png';
 import menuImg from '../assets/MenuImg.png';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-class Background_2 extends Component {  
+class Background_4 extends Component {
   constructor(props){
-    super(props)
-    this.state = {
-      
-    }
+      super(props)
+      this.state = {
+           
+      }
   }
-  render() 
-  { 
-    return ( 
-      
-      <>
-        <View style = {styles.choix1}/> 
+
+  render(){
+        return (
+            <>
+        <View style = {styles.container}/>
         
         </>
-    );   
-  }
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  choix1: 
-{
-  position: 'absolute',
-  width:"100%",
-  height:"12.5%",
-  backgroundColor: '#8659B4',
-}
+    container: {
+      position: 'absolute',
+      alignItems: "center",
+      backgroundColor: "#E4d5E5",
+      width:"100%",
+      height:"100%",
+    },
+
  
 });
-export {Background_2}
+
+export  {Background_4}
