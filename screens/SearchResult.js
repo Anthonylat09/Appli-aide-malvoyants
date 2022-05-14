@@ -5,6 +5,7 @@ import eye from '../assets/eye.png';
 import *as auth from 'firebase/auth'
 import {ref,getDatabase,set, onValue,val, child, DataSnapshot} from 'firebase/database'
 import { useLocation } from "../services/useLocation";
+import { Background_4 } from "../components/Background_4";
 export const db = getDatabase()
 class SearchResult extends Component{
     constructor(props)
@@ -14,6 +15,7 @@ class SearchResult extends Component{
       
     }
   }
+  /*
   async componentDidMount () 
   {
       try {
@@ -55,11 +57,12 @@ class SearchResult extends Component{
           
       }
   }
-
+*/
   render(){
     return (
         <>
         <View style = {styles.ContainerParent}>
+          <Background_4/>
             <View style = {styles.BackgroundHeader}>
               <View style = {styles.EyeBarsAndText}>
                 <View style = {styles.FlexBars}>
@@ -72,7 +75,7 @@ class SearchResult extends Component{
 
                 <View style = {styles.FlexText}>
                   <Text style = {{fontSize: 32,
-                                  }}>Accueil</Text>
+                                  }}></Text>
                 </View>
 
                 <View style = {styles.FlexEye}>
