@@ -4,13 +4,14 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import eye from '../assets/eye.png';
 import undrawPedestrian from '../assets/undraw_pedestrian_crossing_l-6-jv.png';
 import {Button} from 'react-native-elements'
+import rightarrow from '../assets/right-arrow.png'
 class Parametres extends Component
 {
   constructor(props)
   {
     super(props)
     this.state = {
-      HeaderText : "NAIsee est une application développée par 3 jeunes étudiants en école d’ingénieur\n• NDIAYE Antoine Latgrand \n• MBOUP Issa \n• EL HABCHAOUI Nawfal\n D’où son nom NAIsee (Nawfal, Antoine, Issa). Elle a été développée dans le but de venir en aide aux personnes malvoyantes dans leur taches quotidiennes, en les mettant en rapport avec une personne géographiquement proche d’elles, ou s’il n’y a personne de relativement proche en déclanchant un appel avec un bénévole pour donner des indications. Nous espérons que votre expérience avec notre application sera agréable, cordialement, l’équipe NAIsee.",
+      HeaderText : "Envoyez nous vos commentaires",
     }
   }
 
@@ -30,8 +31,8 @@ class Parametres extends Component
                 </View>
 
                 <View style = {styles.FlexText}>
-                  <Text style = {{fontSize: 32,
-                                  }}>A propos</Text>
+                  <Text style = {{fontSize: 24,
+                                  }}>Paramètres</Text>
                 </View>
 
                 <View style = {styles.FlexEye}>
@@ -42,8 +43,58 @@ class Parametres extends Component
 
             </View>
 
-            <View style = {styles.FlexTexteAccueil}>
-              <Text style = {styles.TexteAccueil}>{this.state.HeaderText}</Text>
+            <View style = {styles.FlexParametres}>
+                <TouchableOpacity style = {{
+                    borderWidth: 1,
+                    flexDirection: 'row',
+                    padding: 15
+                }}> 
+                    <Text style = {{
+                        fontSize: 20,
+                        flexDirection: 'row',
+                        flex:1,
+                    }}>Envoyez nous vos commentaires</Text>
+                    <Image source = {rightarrow}
+                     style = {{
+                        height: 20,
+                        width: 20
+                     }}/>
+                </TouchableOpacity>
+
+                <TouchableOpacity style = {{
+                    borderWidth: 1,
+                    flexDirection: 'row',
+                    padding: 15
+                }}> 
+                    <Text style = {{
+                        fontSize: 20,
+                        flexDirection: 'row',
+                        flex:1,
+                    }}>Langue</Text>
+                    <Image source = {rightarrow}
+                     style = {{
+                        height: 20,
+                        width: 20
+                     }}/>
+                </TouchableOpacity>
+                  
+            </View>
+
+            <View style = {styles.FlexVersion}>
+              <View style = {styles.FlexVersionAndNumber}>
+              <Text style = {{
+                    flexDirection: 'row',
+                    flex: 1
+                }}>
+                    Version
+                </Text>
+                <Text style = {{
+                    flexDirection: 'row',
+                    alignItems:'flex-end',
+                }}>
+                    1.0.0
+                </Text>
+              </View>
             </View>
            
             
@@ -103,17 +154,20 @@ const styles = StyleSheet.create({
   
   
   
-    FlexTexteAccueil:{
-      flex: 14,
+    FlexParametres:{
+      flex: 12,
 
     },
   
-    TexteAccueil: {
-      fontSize: 20,
-      fontWeight: 'bold'
+    FlexVersion: {
+        flex: 2,
+        justifyContent: 'center'
+
     },
     
-  
+    FlexVersionAndNumber: {
+        flexDirection: 'row',
+    }
     
   })
 
