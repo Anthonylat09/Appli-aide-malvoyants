@@ -1,6 +1,5 @@
 import * as Location from "expo-location";
-import {database }from 'firebase/database'
-import {ref,getDatabase,update} from 'firebase/database'
+import {ref,getDatabase,update,onValue} from 'firebase/database'
 export const db = getDatabase()
   export const getLocation = async (uid) => {
     try {
@@ -32,41 +31,41 @@ export const db = getDatabase()
       console.log("yeahhhhh")
     }
   };
-  export const NearbyUsers = asyn(uid) 
+  export const NearbyUsers = async (uid) =>
   {
     try {
            let db = getDatabase()
       
 
       
-            const uid = auth.getAuth().currentUser.uid;
             let users =[];
-            let  reference = ref(db,'users/assistans');
+            let  reference = ref(db,'users/assistants');
             console.log(reference)
 
            await onValue(reference, (datasnapshot) => {
               datasnapshot.forEach((child) => {
                 console.log(JSON.stringify(child.val().location))
-              if(child.val().uid=== uid)
+                users.push ({
+                  userName:child.val().location     })
+             /* if(child.val().uid=== uid)
               {
                 console.log('yesss')
                   
               }
               else {  
                 users.push ({
-                  userName:child.val().location
+                  userName:child.val().location           //UpdateEvery(uid)
+
               })
               console.log('yess')
-              }
+              }*/
           }
               )
               
 
            })
            console.log(users)
-           this.setState({
-             results:users
-           })
+           
           
            
         
@@ -92,7 +91,8 @@ export const UpdateEvery = async (uid) =>
 {
   window.setInterval(function(){
     //console.log("location222" + JSON.stringify(getLocation()))
-  getLocation(uid)    
+  getLocation(uid)
+  NearbyUsers(uid)  
 
   }, 50000);
 }
