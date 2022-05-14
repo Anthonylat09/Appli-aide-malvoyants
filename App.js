@@ -11,6 +11,7 @@ import { Login } from './screens/Login';
 import { Background_2 } from './components/Background_2';
 import { Registration } from './screens/RegistrationPage';
 import { DrawerScreen } from './navigation/DrawerScreen';
+import {SearchResult} from './screens/SearchResult'
 let log = Login
 let search = SearchResult
 let back = Background_1
@@ -20,7 +21,9 @@ let choice = ChoicesPage
 let back2 = Background_2
 export default  class App extends React.Component {
   render() {
-    return <DrawerScreen/>;
+    return <NavigationContainer>
+      <MyStack/>
+    </NavigationContainer>;
   }  
 }   
 
@@ -39,9 +42,9 @@ const MyStack = () =>
       <Stack.Screen name = "Login" component = {log}/>
 
       <Stack.Screen name = "Sign Up" component = {reg}/>
-      <Stack.Screen name = "Results" component = {search}/>
 
-      
+
+      <Stack.Screen name = "Results" component = {search}/>
 
 
       <Stack.Screen name = "Drawer" component = {DrawerScreen}/>

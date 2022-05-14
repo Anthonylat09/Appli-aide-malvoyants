@@ -91,7 +91,7 @@ class Login extends Component {
         auth.signInWithEmailAndPassword(auth.getAuth(),this.state.email,this.state.password)
         .then(() => {
         const user = auth.getAuth().currentUser;
-        this.props.navigation.navigate('Results')
+        this.props.navigation.navigate('Drawer')
         })
       }
      const handleSubmit = async () => {
