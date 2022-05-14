@@ -4,7 +4,8 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import eye from '../assets/eye.png';
 import undrawPedestrian from '../assets/undraw_pedestrian_crossing_l-6-jv.png';
 import {Button} from 'react-native-elements'
-import rightarrow from '../assets/right-arrow.png'
+import rightarrow from '../assets/right-arrow.png';
+import HeaderComponent from "../components/HeaderComponent";
 class Parametres extends Component
 {
   constructor(props)
@@ -20,28 +21,7 @@ class Parametres extends Component
     return (
         <>
         <View style = {styles.ContainerParent}>
-            <View style = {styles.BackgroundHeader}>
-              <View style = {styles.EyeBarsAndText}>
-                <View style = {styles.FlexBars}>
-                  <TouchableOpacity style = {styles.Bars} 
-                                    onPress={()=> this.props.navigation.openDrawer()}> 
-                    <Icon name="bars" size={32} />
-
-                  </TouchableOpacity>
-                </View>
-
-                <View style = {styles.FlexText}>
-                  <Text style = {{fontSize: 24,
-                                  }}>Paramètres</Text>
-                </View>
-
-                <View style = {styles.FlexEye}>
-                  <Image source = {eye} style = {styles.Eye}/> 
-                </View>
-              </View>
-            
-
-            </View>
+        <HeaderComponent navigation = {this.props.navigation}/>
 
             <View style = {styles.FlexParametres}>
                 <TouchableOpacity style = {{
@@ -110,47 +90,6 @@ const styles = StyleSheet.create({
       flex: 1,
     },
     
-    BackgroundHeader:{
-      flex:2,
-    },
-  
-    EyeBarsAndText: {
-      backgroundColor: '#8659B4',
-      flex: 1,
-      flexDirection: 'row',
-      alignItems: 'flex-end'
-  
-    },
-  
-    FlexBars: {
-      flex: 1,
-      flexDirection: 'row',
-  
-    },
-  
-    FlexEye: {
-      flex: 1,
-      flexDirection: 'row',
-      justifyContent: 'flex-end',
-    },
-
-    Bars :
-    {  
-      width: 40,
-      height: 38,
-    },
-  
-    Eye : 
-    {
-      width: 40,
-      height: 38,
-    },
-  
-    FlexText: {
-      flex: 1,
-      flexDirection: 'row',
-      justifyContent: 'center',
-    },
   
   
   

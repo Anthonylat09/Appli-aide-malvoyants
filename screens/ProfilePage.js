@@ -7,6 +7,7 @@ import {Background_4} from '../components/Background_4'
 import LoginImg from '../assets/LoginImg.png'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import eye from '../assets/eye.png';
+import HeaderComponent from '../components/HeaderComponent';
 
 class ProfilePage extends Component 
 {  
@@ -25,28 +26,7 @@ class ProfilePage extends Component
             <Background_4/>
             
             <View style = {styles.ContainerParent}>
-              <View style = {styles.BackgroundHeader}>
-                <View style = {styles.EyeBarsAndText}>
-                  <View style = {styles.FlexBars}>
-                    <TouchableOpacity style = {styles.Bars} 
-                                      onPress={()=> this.props.navigation.openDrawer()}> 
-                      <Icon name="bars" size={32} />
-
-                    </TouchableOpacity>
-                  </View>
-
-                  <View style = {styles.FlexText}>
-                    <Text style = {{fontSize: 32,
-                                    }}>Profil</Text>
-                  </View>
-
-                  <View style = {styles.FlexEye}>
-                    <Image source = {eye} style = {styles.Eye}/> 
-                  </View>
-                </View>
-              
-
-              </View>
+            <HeaderComponent navigation = {this.props.navigation}/>
 
               <View style = {styles.FlexPhotoProfil}>
                 <Image source = {LoginImg} style = {styles.PhotoProfil}/>
@@ -100,38 +80,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   
-  BackgroundHeader:{
-    flex:2,
-    borderWidth: 3
-  },
-
-  EyeBarsAndText: {
-    backgroundColor: '#8659B4',
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'flex-end'
-
-  },
-
-  FlexBars: {
-    flex: 1,
-    flexDirection: 'row',
-
-  },
-
-  FlexEye: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-  },
-
-  FlexText: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-
-
 
   FlexPhotoProfil:{
     flex: 4,
