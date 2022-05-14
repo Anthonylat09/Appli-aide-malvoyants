@@ -92,18 +92,12 @@ class SearchResult extends Component{
            
             <View style = {styles.FlexAide}>
 
-            </View>
-
-            <View style = {styles.FlexInfosUtilisateur}>
              
               
-            </View>
-
-            <View style = {styles.FlexIllustration}>
 
             </View>
             
-          </View>
+        </View>
           
         </>
     )
@@ -161,7 +155,7 @@ const styles = StyleSheet.create({
 
 
   FlexTexteAccueil:{
-    flex: 6,
+    flex: 2,
     alignItems:'center',
     justifyContent: 'center',
     borderWidth: 3
@@ -176,7 +170,7 @@ const styles = StyleSheet.create({
 
 
   FlexAide:{
-    flex: 2,
+    flex: 12,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 3
@@ -189,18 +183,6 @@ const styles = StyleSheet.create({
   },
 
   
-
-  FlexIllustration:{
-    flex: 6,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 3
-  },
-
-  Illustration: {
-    fontSize : 13,
-    color: 'white'
-  },
 
 
   
