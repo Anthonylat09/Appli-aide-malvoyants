@@ -22,7 +22,7 @@ class DrawerScreen extends React.Component {
     render() {
     return (
       <>
-    <Drawer.Navigator
+    <Drawer.Navigator navigation = {this.props.navigation}
       
       drawerContent={props => <CustomDrawer {...props} />}
 
