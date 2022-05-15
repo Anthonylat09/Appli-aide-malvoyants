@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,TouchableOpacity, Image } from 'react-native';
+import rightarrow from '../assets/right-arrow.png';
 
 class CardComponent extends React.Component {
     constructor(props){
@@ -12,16 +13,31 @@ class CardComponent extends React.Component {
 
     render(){
         return (
-            <View>
-                <Text style={styles.text}>{this.props.user.title}</Text>
-            </View>
+            <>
+                <TouchableOpacity style = {{
+                    borderWidth: 1,
+                    flexDirection:'row',
+                    padding: 15
+                }}> 
+                    <Text style = {{
+                        fontSize: 20,
+                        flexDirection: 'row',
+                        flex:1,
+                    }}>Envoyez nous vos commentaires</Text>
+                    <Image source = {rightarrow}
+                     style = {{
+                        height: 20,
+                        width: 20
+                     }}/>
+                </TouchableOpacity>
+                </>
         )
     }
 }
 
 const styles = StyleSheet.create({
     text: {
-      backgroundColor: "blue",
+      backgroundColor: "red",
       color: "white",
       fontSize: 20
     },
