@@ -16,8 +16,7 @@ class SearchResult extends Component{
     {
         super(props)
         this.state = {
-          helpers : [],
-          listText : "Liste de personnes ayant actuellement besoin d’aide:"
+          listText : "Liste de personnes ayant actuellement besoin d’aide:",
     }
   
   }

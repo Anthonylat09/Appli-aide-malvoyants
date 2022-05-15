@@ -23,7 +23,9 @@ let choice = ChoicesPage
 let back2 = Background_2
 export default  class App extends React.Component {
   render() {
-    return  <SearchResult/>
+    return  <NavigationContainer>
+      <MyStack/>
+    </NavigationContainer>
   }  
 }   
 

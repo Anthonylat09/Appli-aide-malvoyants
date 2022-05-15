@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View,TouchableOpacity, Image } from 'react-native';
 import rightarrow from '../assets/right-arrow.png';
-
 class CardComponent extends React.Component {
     constructor(props){
         super(props)
@@ -23,7 +22,7 @@ class CardComponent extends React.Component {
                         fontSize: 20,
                         flexDirection: 'row',
                         flex:1,
-                    }}>Envoyez nous vos commentaires</Text>
+                    }}>{this.props.user.name}</Text>
                     <Image source = {rightarrow}
                      style = {{
                         height: 20,

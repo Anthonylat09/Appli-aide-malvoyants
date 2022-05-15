@@ -77,7 +77,7 @@ export var helpers = []
             { latitude: latitude, longitude: longitude },
             { latitude: child.val().location.coords.latitude, longitude: child.val().location.coords.longitude }
           );
-          if (dis < 1000) {
+          
             console.log("la distance est: " + dis);
             if(dis === 0) {
 
@@ -96,7 +96,7 @@ export var helpers = []
            
             //console.log(users)
           }
-        }
+        
 
 
         }
