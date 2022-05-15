@@ -14,6 +14,7 @@ import { DrawerScreen } from './navigation/DrawerScreen';
 import {SearchResult} from './screens/SearchResult';
 import {Apropos} from './screens/Apropos'
 import {Parametres} from './screens/Parametres'
+import {Map} from './screens/Map'
 let log = Login
 let search = SearchResult
 let back = Background_1
