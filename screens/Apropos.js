@@ -20,7 +20,8 @@ class Apropos extends Component
     return (
         <>
         <View style = {styles.ContainerParent}>
-          <HeaderComponent navigation = {this.props.navigation}/>
+          <HeaderComponent navigation = {this.props.navigation}
+                           pageName = 'À propos'/>
 
             <View style = {styles.FlexTexteAccueil}>
               <Text style = {styles.TexteAccueil}>{this.state.HeaderText}</Text>

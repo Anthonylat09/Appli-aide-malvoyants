@@ -19,7 +19,8 @@ class Welcome extends Component{
       return (
           <>
           <View style = {styles.ContainerParent}>
-             <HeaderComponent navigation = {this.props.navigation}/>
+             <HeaderComponent navigation = {this.props.navigation}
+                              pageName = 'Accueil'/>
 
               <View style = {styles.FlexTexteAccueil}>
                 <Text style = {styles.TexteAccueil}>{this.state.availablePepole}</Text>

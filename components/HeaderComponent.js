@@ -25,8 +25,8 @@ class HeaderComponent extends React.Component {
                   </View>
 
                   <View style = {styles.FlexText}>
-                    <Text style = {{fontSize: 32,
-                                    }}>Accueil</Text>
+                    <Text style = {{fontSize: 24,
+                                    }}>{this.props.pageName}</Text>
                   </View>
 
                   <View style = {styles.FlexEye}>

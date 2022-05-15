@@ -26,7 +26,8 @@ class ProfilePage extends Component
             <Background_4/>
             
             <View style = {styles.ContainerParent}>
-            <HeaderComponent navigation = {this.props.navigation}/>
+            <HeaderComponent navigation = {this.props.navigation}
+                             pageName = 'Profil'/>
 
               <View style = {styles.FlexPhotoProfil}>
                 <Image source = {LoginImg} style = {styles.PhotoProfil}/>

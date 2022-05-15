@@ -21,7 +21,8 @@ class Parametres extends Component
     return (
         <>
         <View style = {styles.ContainerParent}>
-        <HeaderComponent navigation = {this.props.navigation}/>
+        <HeaderComponent navigation = {this.props.navigation}
+                         pageName = 'Paramètres'/>
 
             <View style = {styles.FlexParametres}>
                 <TouchableOpacity style = {{
