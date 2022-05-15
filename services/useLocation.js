@@ -1,6 +1,8 @@
 import * as Location from "expo-location";
 import {ref,getDatabase,update,onValue} from 'firebase/database'
+import {getDistance, getPreciseDistance} from 'geolib';
 export const db = getDatabase()
+export var helpers = []
   export const getLocation = async (uid) => {
     try {
       const { granted } = await Location.requestForegroundPermissionsAsync();
@@ -19,7 +21,7 @@ export const db = getDatabase()
       update(reference,{
               location:location
           })
-          console.log("location" + JSON.stringify(location)) 
+         // console.log("location" + JSON.stringify(location)) 
 
 
      }
@@ -28,49 +30,68 @@ export const db = getDatabase()
 
     } catch (error) {
       console.log(error);
-      console.log("yeahhhhh")
     }
   };
   export const NearbyUsers = async (uid) =>
   {
     try {
+           //var helpers =[]
+
+
            let db = getDatabase()
+           let latitude = 0
+           let longitude = 0
       
+           let users =[];
 
       
-            let users =[];
             let  reference = ref(db,'users/assistants');
-            console.log(reference)
+            console.log(reference) 
+            let refUser = ref(db,'users/assistants/'+uid)
+            console.log(refUser)
+            onValue(refUser,(snapshot) => {
 
-           await onValue(reference, (datasnapshot) => {
-              datasnapshot.forEach((child) => {
-                console.log(JSON.stringify(child.val().location))
-                users.push ({
-                  userName:child.val().location     })
-             /* if(child.val().uid=== uid)
-              {
-                console.log('yesss')
-                  
-              }
-              else {  
-                users.push ({
-                  userName:child.val().location           //UpdateEvery(uid)
+              latitude = snapshot.val().location.coords.latitude
+              longitude =  snapshot.val().location.coords.longitude
+              //console.log(latitude + " <=tekksii =>"+ longitude)
+            })
+            
 
-              })
-              console.log('yess')
-              }*/
+           onValue(reference, (datasnapshot) => {
+        datasnapshot.forEach((child) => {
+          //console.log(JSON.stringify(child.val().location))
+          var dis = getDistance(
+            { latitude: latitude, longitude: longitude },
+            { latitude: child.val().location.coords.latitude, longitude: child.val().location.coords.longitude }
+          );
+          if (dis < 1000) {
+            console.log("la distance est: " + dis);
+            users.push({
+              image: child.val().image,
+              email: child.val().email,
+              name: child.val().name,
+            });
+            //console.log(users)
           }
-              )
-              
 
-           })
-           console.log(users)
-           
+
+
+        }
+        );
+
+
+      })
+          // console.log(users)
+          //console.log(users)
+
+          helpers = [...users] 
+         // console.log(helpers)
+          //console.log(users)
           
-           
+
         
     } catch (error) {
-        alert(error)
+      return error 
         
     }
 
@@ -89,10 +110,11 @@ export const db = getDatabase()
 
 export const UpdateEvery = async (uid) => 
 {
+  
+
   window.setInterval(function(){
     //console.log("location222" + JSON.stringify(getLocation()))
   getLocation(uid)
-  NearbyUsers(uid)  
 
   }, 50000);
 }

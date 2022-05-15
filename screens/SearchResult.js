@@ -3,15 +3,16 @@ import {TouchableOpacity, StyleSheet, Text, Image, View} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import eye from '../assets/eye.png';
 import *as auth from 'firebase/auth'
-import { UpdateEvery, UpdateUserLocation } from "../services/useLocation";
+import { helpers, NearbyUsers, UpdateEvery, UpdateUserLocation } from "../services/useLocation";
 import {ref,getDatabase,set, onValue,val, child, DataSnapshot} from 'firebase/database'
-import { getLocation } from "../services/useLocation";
+import { Background_4 } from "../components/Background_4";
 export const db = getDatabase()
 class SearchResult extends Component{
     constructor(props)
     {
         super(props)
         this.state = {
+          helpers : []
       
     }
   
@@ -22,38 +23,14 @@ class SearchResult extends Component{
     
    
       try {
-        let db = getDatabase()
+           
         
 
         
               const uid = auth.getAuth().currentUser.uid;
-              let users =[];
-              let  reference = ref(db,'users');
-              console.log(reference)
-
-             await onValue(reference, (datasnapshot) => {
-                datasnapshot.forEach((child) => {
-                  console.log(child.val().name)
-                if(child.val().uid=== uid)
-                {
-                  console.log('yesss')
-                    
-                }
-                else {  
-                  users.push ({
-                    userName:child.val().name
-                })
-                console.log('yess')
-                }
-            }
-                )
-                
-
-             })
-             console.log(users)
-             this.setState({
-               results:users
-             })
+              NearbyUsers(uid)
+              console.log(helpers)
+            
              UpdateEvery(uid)
             
              
@@ -67,10 +44,45 @@ class SearchResult extends Component{
   render(){
     return (
         
-        <>
-     <Text></Text>
-    </>
-        
+   
+        <View style = {styles.ContainerParent}>
+          <Background_4/>
+            <View style = {styles.BackgroundHeader}>
+              <View style = {styles.EyeBarsAndText}>
+                <View style = {styles.FlexBars}>
+                  <TouchableOpacity style = {styles.Bars} 
+                                    onPress={()=> this.props.navigation.openDrawer()}> 
+                    <Icon name="bars" size={32} />
+
+                  </TouchableOpacity>
+                </View>
+
+                <View style = {styles.FlexText}>
+                  <Text style = {{fontSize: 32,
+                                  }}></Text>
+                </View>
+
+                <View style = {styles.FlexEye}>
+                  <Image source = {eye} style = {styles.Eye}/> 
+                </View>
+              </View>
+            
+
+            </View>
+
+            <View style = {styles.FlexTexteAccueil}>
+
+            </View>
+           
+            <View style = {styles.FlexAide}>
+
+             
+              
+
+            </View>
+            
+        </View>
+          
     )
 }
 }          
@@ -126,7 +138,7 @@ const styles = StyleSheet.create({
 
 
   FlexTexteAccueil:{
-    flex: 6,
+    flex: 2,
     alignItems:'center',
     justifyContent: 'center',
     borderWidth: 3
@@ -141,7 +153,7 @@ const styles = StyleSheet.create({
 
 
   FlexAide:{
-    flex: 2,
+    flex: 12,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 3
@@ -154,18 +166,6 @@ const styles = StyleSheet.create({
   },
 
   
-
-  FlexIllustration:{
-    flex: 6,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 3
-  },
-
-  Illustration: {
-    fontSize : 13,
-    color: 'white'
-  },
 
 
   

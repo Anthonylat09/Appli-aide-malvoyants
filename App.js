@@ -4,11 +4,16 @@ import { StyleSheet, Text, View } from 'react-native';
 import {Background_1} from './components/Background_1'
 import {HomePage} from './screens/HomePage'
 import {ChoicesPage}  from './screens/ChoicesPage'
+import {ProfilePage}  from './screens/ProfilePage'
+import { Welcome } from './screens/Welcome';
 import { NavigationContainer } from '@react-navigation/native';
 import { Login } from './screens/Login';
 import { Background_2 } from './components/Background_2';
 import { Registration } from './screens/RegistrationPage';
+import { DrawerScreen } from './navigation/DrawerScreen';
 import {SearchResult} from './screens/SearchResult';
+import {Apropos} from './screens/Apropos'
+import {Parametres} from './screens/Parametres'
 let log = Login
 let search = SearchResult
 let back = Background_1
@@ -18,37 +23,38 @@ let choice = ChoicesPage
 let back2 = Background_2
 export default  class App extends React.Component {
   render() {
-  return <NavigationContainer> 
-  <MyStack/>
-</NavigationContainer>;}
-    
+    return  <NavigationContainer> 
+      <MyStack/>
+
+    </NavigationContainer>
+  }  
 }   
 
 const Stack = createStackNavigator();
 const MyStack = () => 
 {
   return ( 
-    <Stack.Navigator initialRouteName='Home' screenOptions={{
-    headerShown: false,
+    <Stack.Navigator initialRouteName = 'Home' screenOptions={{
+    headerShown: false
     
   }}> 
       <Stack.Screen name = "Home" component = {HomePage}/>
 
       <Stack.Screen name = "Choices" component = {choice}/>
      
-
       <Stack.Screen name = "Login" component = {log}/>
 
       <Stack.Screen name = "Sign Up" component = {reg}/>
+
+
       <Stack.Screen name = "Results" component = {search}/>
 
-      
 
+      <Stack.Screen name = "Drawer" component = {DrawerScreen}/>
 
     </Stack.Navigator>
   ) 
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
