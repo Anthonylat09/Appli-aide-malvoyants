@@ -23,7 +23,7 @@ class Registration extends Component {
         confirmedPassword:"",
         passwordVisibility:true,
         image:"",
-        location:"",
+        location:null,
         rightIcon:'eye'
         
 

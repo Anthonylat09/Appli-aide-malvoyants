@@ -50,16 +50,29 @@ export var helpers = []
             let refUser = ref(db,'users/assistants/'+uid)
             console.log(refUser)
             onValue(refUser,(snapshot) => {
-
-              latitude = snapshot.val().location.coords.latitude
+              
+                latitude = snapshot.val().location.coords.latitude
               longitude =  snapshot.val().location.coords.longitude
-              //console.log(latitude + " <=tekksii =>"+ longitude)
+              console.log(latitude + " <=tekksii =>"+ longitude)
+
+              
+
+              
             })
             
 
            onValue(reference, (datasnapshot) => {
         datasnapshot.forEach((child) => {
           //console.log(JSON.stringify(child.val().location))
+          if(datasnapshot.val.location === null) 
+          {
+           
+
+          }
+          else 
+          {
+
+          
           var dis = getDistance(
             { latitude: latitude, longitude: longitude },
             { latitude: child.val().location.coords.latitude, longitude: child.val().location.coords.longitude }
@@ -73,7 +86,7 @@ export var helpers = []
             });
             //console.log(users)
           }
-
+        }
 
 
         }
