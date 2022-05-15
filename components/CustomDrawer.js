@@ -1,6 +1,15 @@
 import React from "react";
 import {View, Text,Image, ImageBackground, TouchableOpacity} from 'react-native';
 import { DrawerContentScrollView, DrawerItemList,DrawerItem } from "@react-navigation/drawer";
+import *as auth from 'firebase/auth'
+const handleSignOut = () => 
+      {
+        auth.signOut(auth.getAuth()).then (() => 
+        {
+          navigation.navigate('Login')
+        })
+      }
+
 const CustomDrawer = (props) => {
     return (
         <View style = {{flex:1}}>
@@ -23,7 +32,7 @@ const CustomDrawer = (props) => {
                 </View>
             </DrawerContentScrollView>
             <View style = {{padding: 20,borderTopWidth:1,borderTopColor:'#000'}}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={handleSignOut}>
                     <Text>Déconnexion</Text>
                 </TouchableOpacity>
             </View>
