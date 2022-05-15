@@ -38,6 +38,7 @@ class Welcome extends Component{
                           height: 100,
                           width: 290
                         }}
+                       
                         />
               </View>
 
