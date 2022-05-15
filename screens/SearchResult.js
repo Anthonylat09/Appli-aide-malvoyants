@@ -6,14 +6,16 @@ import *as auth from 'firebase/auth'
 import {ref,getDatabase,set, onValue,val, child, DataSnapshot} from 'firebase/database'
 import { useLocation } from "../services/useLocation";
 import { Background_4 } from "../components/Background_4";
-import HeaderComponent from "../components/HeaderComponent";
+import UsersComponent from '../components/UsersComponent';
+import CardComponent from "../components/CardComponent";
+
 export const db = getDatabase()
 class SearchResult extends Component{
     constructor(props)
     {
         super(props)
         this.state = {
-      
+          listText : "Liste de personnes ayant actuellement besoin d’aide:"
     }
   }
   /*
@@ -67,14 +69,13 @@ class SearchResult extends Component{
           <HeaderComponent navigation = {this.props.navigation}/>
 
             <View style = {styles.FlexTexteAccueil}>
+              <Text style = {styles.TexteAccueil}>{this.state.listText}</Text>
 
             </View>
            
-            <View style = {styles.FlexAide}>
+            <View style = {styles.FlexListe}>
 
-             
-              
-
+             <UsersComponent/>
             </View>
             
         </View>
@@ -101,13 +102,13 @@ const styles = StyleSheet.create({
   },
 
   TexteAccueil: {
-    height: 200,
-    width: 200
+    fontSize: 24,
+    textAlign:'center'
   },
 
 
 
-  FlexAide:{
+  FlexListe:{
     flex: 12,
     justifyContent: 'center',
     alignItems: 'center',
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
   },
 
 
-  Aide:{
+  Liste:{
     fontSize: 25
   },
 
