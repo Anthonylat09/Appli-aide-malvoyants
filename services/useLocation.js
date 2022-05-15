@@ -79,11 +79,21 @@ export var helpers = []
           );
           if (dis < 1000) {
             console.log("la distance est: " + dis);
+            if(dis === 0) {
+
+            }
+          else 
+          {
             users.push({
               image: child.val().image,
               email: child.val().email,
               name: child.val().name,
+              distance:dis,
+              location:child.val().location
             });
+
+          }
+           
             //console.log(users)
           }
         }

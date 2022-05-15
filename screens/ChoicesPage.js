@@ -27,7 +27,11 @@ class ChoicesPage extends Component
           <Button titleStyle = {styles.buttons}
                   buttonStyle = {styles.choix1}
                   title= {this.state.HeaderText} 
-                  onPress = {() => this.props.navigation.navigate('Login')}/>
+                  onPress = {() => this.props.navigation.navigate('Login',
+                  {
+                    valid:true
+                  } 
+                  )}/>
           </View>
 
           <View style = {{flex: 1,

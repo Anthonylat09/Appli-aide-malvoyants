@@ -12,10 +12,7 @@ import { Background_3 } from '../components/Background_3';
 import { useRoute } from '@react-navigation/native';
 let IMAGE_HEIGHT = 170
 let IMAGE_HEIGHT_SMALL = 150
-const MyClassWithRouter = (props) => {
-  const router = useRouter()
-  return <MyClass {...props} router={router} />
-}
+
 class Login extends Component {   
     constructor(props)
     {
@@ -193,7 +190,10 @@ class Login extends Component {
                 <SafeAreaView style={{position:'absolute', flexDirection: 'row',justifyContent: 'center', alignItems: 'center', top:"48%"}}> 
                 <Text left = "45%%">Nouveau ici?</Text>
 
-                <Button  right="45%" title = "Inscription" onPress = {() => this.props.navigation.navigate('Sign Up')}></Button>
+                <Button  right="45%" title = "Inscription" onPress = {() => this.props.navigation.navigate('Sign Up',
+                {
+                  valid:true
+                })}></Button>
 
                 </SafeAreaView>
 
