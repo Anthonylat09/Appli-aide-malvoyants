@@ -9,8 +9,13 @@ import {useLocation} from '../services/useLocation'
 
 import *as auth from 'firebase/auth'
 import { Background_3 } from '../components/Background_3';
+import { useRoute } from '@react-navigation/native';
 let IMAGE_HEIGHT = 170
 let IMAGE_HEIGHT_SMALL = 150
+const MyClassWithRouter = (props) => {
+  const router = useRouter()
+  return <MyClass {...props} router={router} />
+}
 class Login extends Component {   
     constructor(props)
     {
@@ -18,8 +23,8 @@ class Login extends Component {
       this.keyboardHeight = new Animated.Value(0);  
       this.imageHeight = new Animated.Value(IMAGE_HEIGHT);
       this.state = {
-        firstname:"",
-        lastName:"",
+        valid :this.props.route.params.valid,
+        name:"",
         password:"",
         email:"",
         confirmedPassword:"",
@@ -31,6 +36,9 @@ class Login extends Component {
          
 
     } 
+    componentDidMount() {
+      
+    }
     UNSAFE_componentWillMount () {
       this.keyboardWillShowSub = Keyboard.addListener('keyboardWillShow', this.keyboardWillShow);
       this.keyboardWillHideSub = Keyboard.addListener('keyboardWillHide', this.keyboardWillHide);
@@ -75,8 +83,18 @@ class Login extends Component {
       ]).start();
     };
     
+    
     render() {
-      const handlePasswordVisibility = () => {
+     
+     
+      
+      //const {params} = this.props.navigation.state;
+      //console.log(params)
+   
+    
+      //console.log("Wesh c'est validé: "+ valid)
+      
+      function handlePasswordVisibility() {
         if (rightIcon === 'eye') {
           setRightIcon('eye-off');
           setPasswordVisibility(!passwordVisibility);
@@ -84,7 +102,7 @@ class Login extends Component {
           setRightIcon('eye');
           setPasswordVisibility(!passwordVisibility);
         }
-      };
+      }
       
       const handleSignIn = () => 
       {
@@ -119,6 +137,7 @@ class Login extends Component {
         style = {styles.container} 
         automaticallyAdjustContentInsets = {true}
         alwaysBounceVertical = {false}
+    
 
         >
         <Animated.Image source={LoginImg} style ={[styles.LoginImg, {height:this.imageHeight},{width:this.imageHeight}] }/>
