@@ -28,7 +28,7 @@ class SearchResult extends Component{
 
         
               const uid = auth.getAuth().currentUser.uid;
-              NearbyUsers(uid)
+             
               console.log(helpers)
             
              UpdateEvery(uid)

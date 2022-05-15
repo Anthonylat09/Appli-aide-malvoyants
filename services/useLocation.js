@@ -123,7 +123,8 @@ export var helpers = []
 
 export const UpdateEvery = async (uid) => 
 {
-  
+  getLocation(uid)
+  NearbyUsers(uid)
 
   window.setInterval(function(){
     //console.log("location222" + JSON.stringify(getLocation()))
