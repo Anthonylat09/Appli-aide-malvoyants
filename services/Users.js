@@ -6,6 +6,10 @@ let reference=""
 export const AddUser = async (valid,uid, name, email, image,location) => {
 
     try {
+        // valid est un parametre qui nous permets de savoir si la personne est un malvoyant ou un assistant 
+        /// true ==> malvoyants
+        /// false ==> assistants 
+        /**On interroge la base de données en fonction du status de l'utilisateur */
         if (!valid) 
         {
              reference= ref(db,'users/malvoyants/' + uid)
@@ -15,6 +19,7 @@ export const AddUser = async (valid,uid, name, email, image,location) => {
         }
         else {
             reference = ref(db,'users/assistants/' + uid)
+            
         }
         set (reference,
             {
@@ -22,7 +27,9 @@ export const AddUser = async (valid,uid, name, email, image,location) => {
                 name:name,
                 email:email,
                 image:image,
-                location:location 
+                myLocation:location,
+                goTo:location
+
 
             }
     

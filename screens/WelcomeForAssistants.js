@@ -5,7 +5,10 @@ import eye from '../assets/eye.png';
 import undrawPedestrian from '../assets/undraw_pedestrian_crossing_l-6-jv.png';
 import {Button} from 'react-native-elements'
 import HeaderComponent from '../components/HeaderComponent'
-class Welcome extends Component{
+import *as auth from 'firebase/auth'
+import { helpers, NearbyUsers, UpdateEvery, UpdateUserLocation } from "../services/useLocation";
+import { getDest, ShareMyLocationTo } from "../services/useLocation";
+class WelcomeForAssistants extends Component{
     constructor(props)
     {
         super(props)
@@ -14,8 +17,50 @@ class Welcome extends Component{
           welcomeText: "En appuyant sur le bouton ci-dessous, ou en utilisant l’assistance vocale, vous pourrez faire appel à quelqu’un pour vous aider, soit par visio, soit en faisant appel à quelqu’un qui n’est pas loin de vous geographiquement parlant."
     }
   }
+  componentDidMount () 
+  {
+    
+   
+      try {
+           
+        
+
+        
+              const uid = auth.getAuth().currentUser.uid;
+             
+             
+            
+            
+             setTimeout(() => {  console.log("Entrain de chercher les personnes les plus proches..."); }, 10000);
+             UpdateEvery(uid)
+
+          
+      } catch (error) {
+          alert(error)
+          
+      }
+  }
+
 
   render(){
+    const handleSubmit = async () => {
+       
+        const uid =auth.getAuth().currentUser.uid
+        ShareMyLocationTo(uid,uid)
+        const location = null
+        if(location === null) 
+        {
+            alert("Il n'y a pas de personne qui ait besoins \n d'aide dans votre")
+        }
+        else {
+            this.props.navigation.navigate('MapView',
+            {
+                location : location
+
+            })
+        }
+        
+    }
       return (
           <>
           <View style = {styles.ContainerParent}>
@@ -28,7 +73,7 @@ class Welcome extends Component{
               </View>
              
               <View style = {styles.FlexAide}>
-                <Button title= "Demander de   l'aide"
+                <Button title= "Venir en aide"
                         titleStyle = {{
                           fontSize: 32
                         }}
@@ -38,7 +83,7 @@ class Welcome extends Component{
                           height: 100,
                           width: 290
                         }}
-                        onPress = {() => this.props.navigation.navigate('Results')}
+                        onPress = {handleSubmit}
                         />
               </View>
 
@@ -104,4 +149,4 @@ const styles = StyleSheet.create({
     
   })
           
-export {Welcome}
+export {WelcomeForAssistants}
