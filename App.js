@@ -16,13 +16,8 @@ import {SearchResult} from './screens/SearchResult';
 import {Apropos} from './screens/Apropos'
 import {Parametres} from './screens/Parametres'
 import {Map} from './screens/Map'
-let log = Login
-let search = SearchResult
-let back = Background_1
-let HP = HomePage
-let reg = Registration
-let choice = ChoicesPage
-let back2 = Background_2
+
+
 export default  class App extends React.Component {
   render() {
     return  <NavigationContainer>
@@ -41,17 +36,18 @@ const MyStack = () =>
   }}> 
       <Stack.Screen name = "Home" component = {HomePage}/>
 
-      <Stack.Screen name = "Choices" component = {choice}/>
+      <Stack.Screen name = "Choices" component = {ChoicesPage}/>
      
-      <Stack.Screen name = "Login" component = {log}/>
+      <Stack.Screen name = "Login" component = {Login}/>
 
-      <Stack.Screen name = "Sign Up" component = {reg}/>
+      <Stack.Screen name = "Sign Up" component = {Registration}/>
 
 
-      <Stack.Screen name = "Results" component = {search}/>
+      <Stack.Screen name = "Results" component = {SearchResult}/>
 
 
       <Stack.Screen name = "Drawer" component = {DrawerScreen}/>
+      
       <Stack.Screen name = "DrawerForAssistants" component = {DrawerForAssistants} />
 
 
@@ -66,3 +62,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export {MyStack}

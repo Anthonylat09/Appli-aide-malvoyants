@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text,Image, ImageBackground} from 'react-native';
+import {View, Text,Image, ImageBackground, TouchableOpacity} from 'react-native';
 import { DrawerContentScrollView, DrawerItemList,DrawerItem } from "@react-navigation/drawer";
 const CustomDrawer = (props) => {
     return (
@@ -22,6 +22,11 @@ const CustomDrawer = (props) => {
                     <DrawerItemList {...props}/> 
                 </View>
             </DrawerContentScrollView>
+            <View style = {{padding: 20,borderTopWidth:1,borderTopColor:'#000'}}>
+                <TouchableOpacity>
+                    <Text>Déconnexion</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 } 

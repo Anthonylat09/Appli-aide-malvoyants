@@ -12,6 +12,8 @@ import CustomDrawer from '../components/CustomDrawer'
 import { Welcome } from '../screens/Welcome';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { SearchResult } from '../screens/SearchResult';
+import { Login } from '../screens/Login';
+import { MyStack } from '../App';
 const Drawer = createDrawerNavigator()
 
 const Stack = createStackNavigator();
@@ -20,7 +22,6 @@ class DrawerScreen extends React.Component {
     render() {
     return (
       <>
-    <NavigationContainer independent = {true}>
     <Drawer.Navigator
       
       drawerContent={props => <CustomDrawer {...props} />}
@@ -68,12 +69,10 @@ class DrawerScreen extends React.Component {
                      <Ionicons name = "md-information-circle-outline" size = {22} color = {color}/>
                    )}}
         component={Apropos} />
-        <Stack.Screen name = "Results" component = {search}/>
 
       
 
     </Drawer.Navigator>
-    </NavigationContainer>
     </>
    )}
       

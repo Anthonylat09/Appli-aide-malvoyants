@@ -34,7 +34,7 @@ class ProfilePage extends Component
               </View>
              
               <View style = {styles.FlexNomUtilisateur}>
-                <Text style = {styles.NomUtilisateur}>Rew</Text>
+                <Text style = {styles.NomUtilisateur}>nom utilisateur</Text>
               </View>
 
               <View style = {styles.FlexInfosUtilisateur}>
@@ -43,13 +43,13 @@ class ProfilePage extends Component
                   width:271,
                   height:110,
                 }}>
-                <Text style = {styles.InfosUtilisateur}>Rew</Text>
+                <Text style = {styles.InfosUtilisateur}>email</Text>
                 <Text style = {styles.InfosUtilisateur}></Text>
-                <Text style = {styles.InfosUtilisateur}>Rew</Text>
+                <Text style = {styles.InfosUtilisateur}>mot de passe</Text>
                 <Text style = {styles.InfosUtilisateur}></Text>
-                <Text style = {styles.InfosUtilisateur}>Rew</Text>
+                <Text style = {styles.InfosUtilisateur}>prenom</Text>
                 <Text style = {styles.InfosUtilisateur}></Text>
-                <Text style = {styles.InfosUtilisateur}>Rew</Text>
+                <Text style = {styles.InfosUtilisateur}>nom</Text>
                   </View>
                 
               </View>
@@ -86,7 +86,6 @@ const styles = StyleSheet.create({
     flex: 4,
     alignItems:'center',
     justifyContent: 'center',
-    borderWidth: 3
    
   },
 
@@ -101,7 +100,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 3
     
   },
 
@@ -116,7 +114,6 @@ const styles = StyleSheet.create({
     flex: 3,
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 3
   },
 
   InfosUtilisateur: {
@@ -126,7 +123,6 @@ const styles = StyleSheet.create({
 
   FlexStatsUtilisateur:{
     flex: 4,
-    borderWidth: 3,
 
   },
   FlexSupprimerCompte: {

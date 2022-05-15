@@ -20,7 +20,6 @@ class DrawerForAssistants extends React.Component {
     render() {
     return (
       <>
-    <NavigationContainer independent = {true}>
     <Drawer.Navigator
       
       drawerContent={props => <CustomDrawer {...props} />}
@@ -73,7 +72,6 @@ class DrawerForAssistants extends React.Component {
       
 
     </Drawer.Navigator>
-    </NavigationContainer>
     </>
    )}
       

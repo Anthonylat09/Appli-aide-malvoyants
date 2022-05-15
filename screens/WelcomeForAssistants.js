@@ -13,8 +13,8 @@ class WelcomeForAssistants extends Component{
     {
         super(props)
         this.state = {
-          availablePepole : "Nombre de personnes disponibles pour aider : 255000",
-          welcomeText: "En appuyant sur le bouton ci-dessous, ou en utilisant l’assistance vocale, vous pourrez faire appel à quelqu’un pour vous aider, soit par visio, soit en faisant appel à quelqu’un qui n’est pas loin de vous geographiquement parlant."
+          availablePepole : "Nombre de personnes ayant actuellement besoin d’aide : 255000",
+          welcomeText: "En appuyant sur le bouton ci-dessous, vous serez redirigé vers une page où vous pourrez choisir une langue dans laquelle aider une personne. Ensuite, vous serez automatiquement mis en contact avec quelqu’un en fonction des disponibilités."
     }
   }
   componentDidMount () 

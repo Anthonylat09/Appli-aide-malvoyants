@@ -8,7 +8,7 @@ import {ref,getDatabase,set, onValue,val, child, DataSnapshot} from 'firebase/da
 import { Background_4 } from "../components/Background_4";
 import UsersComponent from '../components/UsersComponent';
 import CardComponent from "../components/CardComponent";
-import HeaderComponent from "../components/HeaderComponent";
+import ResultsHeaderComponent from "../components/ResultsHeaderComponent";
 
 export const db = getDatabase()
 class SearchResult extends Component{
@@ -52,7 +52,7 @@ class SearchResult extends Component{
    
         <View style = {styles.ContainerParent}>
           <Background_4/>
-          <HeaderComponent navigation = {this.props.navigation}/>
+          <ResultsHeaderComponent navigation = {this.props.navigation}/>
 
             <View style = {styles.FlexTexteAccueil}>
               <Text style = {styles.TexteAccueil}>{this.state.listText}</Text>
