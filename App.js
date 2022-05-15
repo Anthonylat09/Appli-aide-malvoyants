@@ -23,7 +23,10 @@ let choice = ChoicesPage
 let back2 = Background_2
 export default  class App extends React.Component {
   render() {
-    return <DrawerScreen/>;
+    return  <NavigationContainer> 
+      <MyStack/>
+
+    </NavigationContainer>
   }  
 }   
 
