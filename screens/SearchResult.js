@@ -22,7 +22,7 @@ class SearchResult extends Component{
   
   }
 
-  async componentDidMount () 
+  componentDidMount () 
   {
     
    
@@ -34,10 +34,12 @@ class SearchResult extends Component{
               const uid = auth.getAuth().currentUser.uid;
              
              
+              UpdateEvery(uid)
             
-             UpdateEvery(uid)
-            
+             setTimeout(() => {  console.log("Entrain de chercher les personnes les plus proches..."); }, 10000);
+           
              console.log(helpers)
+
           
       } catch (error) {
           alert(error)

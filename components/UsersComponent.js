@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList,StyleSheet, Text, View } from 'react-native';
 import CardComponent from './CardComponent'
+import { helpers } from '../services/useLocation';
 
 const DATA = [
     {

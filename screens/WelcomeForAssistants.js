@@ -6,6 +6,7 @@ import undrawPedestrian from '../assets/undraw_pedestrian_crossing_l-6-jv.png';
 import {Button} from 'react-native-elements'
 import HeaderComponent from '../components/HeaderComponent'
 import *as auth from 'firebase/auth'
+import { helpers, NearbyUsers, UpdateEvery, UpdateUserLocation } from "../services/useLocation";
 import { getDest, ShareMyLocationTo } from "../services/useLocation";
 class WelcomeForAssistants extends Component{
     constructor(props)
@@ -16,6 +17,30 @@ class WelcomeForAssistants extends Component{
           welcomeText: "En appuyant sur le bouton ci-dessous, ou en utilisant l’assistance vocale, vous pourrez faire appel à quelqu’un pour vous aider, soit par visio, soit en faisant appel à quelqu’un qui n’est pas loin de vous geographiquement parlant."
     }
   }
+  componentDidMount () 
+  {
+    
+   
+      try {
+           
+        
+
+        
+              const uid = auth.getAuth().currentUser.uid;
+             
+             
+            
+            
+             setTimeout(() => {  console.log("Entrain de chercher les personnes les plus proches..."); }, 10000);
+             UpdateEvery(uid)
+
+          
+      } catch (error) {
+          alert(error)
+          
+      }
+  }
+
 
   render(){
     const handleSubmit = async () => {

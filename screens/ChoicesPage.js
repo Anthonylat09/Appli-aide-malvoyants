@@ -29,7 +29,7 @@ class ChoicesPage extends Component
                   title= {this.state.HeaderText} 
                   onPress = {() => this.props.navigation.navigate('Login',
                   {
-                    valid:true
+                    valid:false 
                   } 
                   )}/>
           </View>

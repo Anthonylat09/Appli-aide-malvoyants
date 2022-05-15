@@ -38,7 +38,7 @@ class Welcome extends Component{
                           height: 100,
                           width: 290
                         }}
-                       
+                        onPress = {() => this.props.navigation.navigate('Results')}
                         />
               </View>
 

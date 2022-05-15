@@ -11,9 +11,11 @@ import { Login } from './screens/Login';
 import { Background_2 } from './components/Background_2';
 import { Registration } from './screens/RegistrationPage';
 import { DrawerScreen } from './navigation/DrawerScreen';
+import{ DrawerForAssistants} from './navigation/DrawerForAssistants'
 import {SearchResult} from './screens/SearchResult';
 import {Apropos} from './screens/Apropos'
 import {Parametres} from './screens/Parametres'
+
 let log = Login
 let search = SearchResult
 let back = Background_1
@@ -50,6 +52,8 @@ const MyStack = () =>
 
 
       <Stack.Screen name = "Drawer" component = {DrawerScreen}/>
+      <Stack.Screen name = "DrawerForAssistants" component = {DrawerForAssistants} />
+
 
     </Stack.Navigator>
   ) 
