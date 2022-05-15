@@ -16,8 +16,7 @@ class SearchResult extends Component{
     {
         super(props)
         this.state = {
-          helpers : [],
-          listText : "Liste de personnes ayant actuellement besoin d’aide:"
+          listText : "Liste de personnes ayant actuellement besoin d’aide:",
     }
   
   }
@@ -81,7 +80,6 @@ const styles = StyleSheet.create({
     flex: 2,
     alignItems:'center',
     justifyContent: 'center',
-    borderWidth: 3
    
   },
 
@@ -94,9 +92,6 @@ const styles = StyleSheet.create({
 
   FlexListe:{
     flex: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 3
     
   },
 

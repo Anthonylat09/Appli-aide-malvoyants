@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList,StyleSheet, Text, View } from 'react-native';
 import CardComponent from './CardComponent'
+import { helpers } from '../services/useLocation';
 
 const DATA = [
     {
@@ -18,10 +19,6 @@ const DATA = [
     {
         id: '12674a0f-3da1-471f-bd96-145571e29d72',
         title: 'fourth Item',
-    },
-    {
-        id: '12674a0f-3da1-471f-bd96-145571e29d72',
-        title: 'fifth Item',
     },
   ];
 
@@ -52,7 +49,7 @@ class UsersComponent extends React.Component {
                 <FlatList
                     data = {DATA}
                     renderItem={this.proxyStatelessComponent.bind(this)}
-                    keyExtractor= {(item, id) => id.toString()}
+                    keyExtractor= {(item, email) => email.toString()}
                 />
             </View>
         )
