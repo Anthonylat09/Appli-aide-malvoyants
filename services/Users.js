@@ -1,12 +1,21 @@
 import {database }from 'firebase/database'
 import {ref,getDatabase,set}from 'firebase/database'
+import { getLocation } from './useLocation'
 export const db = getDatabase()
-
-export const AddUser = async (uid, name, email, image,location) => {
+let reference=""
+export const AddUser = async (valid,uid, name, email, image,location) => {
 
     try {
-      const reference = ref(db,'users/' + uid)
-      console.log(reference)
+        if (!valid) 
+        {
+             reference= ref(db,'users/malvoyants/' + uid)
+            console.log(reference)
+          
+
+        }
+        else {
+            reference = ref(db,'users/assistants/' + uid)
+        }
         set (reference,
             {
                 uid:uid,
@@ -18,6 +27,9 @@ export const AddUser = async (uid, name, email, image,location) => {
             }
     
         );
+        getLocation(uid)
+
+      
     } catch (error) 
     {
         console.log(error);

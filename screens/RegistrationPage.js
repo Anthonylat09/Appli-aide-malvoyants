@@ -16,13 +16,14 @@ class Registration extends Component {
       this.keyboardHeight = new Animated.Value(0);
       this.imageHeight = new Animated.Value(IMAGE_HEIGHT);
       this.state = {
+        valid:true,
         name:"",
         password:"",
         email:"",
         confirmedPassword:"",
         passwordVisibility:true,
         image:"",
-        location:"",
+        location:null,
         rightIcon:'eye'
         
 
@@ -106,7 +107,7 @@ class Registration extends Component {
         await auth.createUserWithEmailAndPassword(auth.getAuth(),email, password)
           .then(() => {
             const userID = auth.getAuth().currentUser.uid;
-            AddUser(userID,this.state.name, this.state.email, this.state.image, this.state.location).
+            AddUser(this.state.valid,userID,this.state.name, this.state.email, this.state.image, this.state.location).
             then(() => { 
               alert("bongoMan")
             }).catch((error) => { 

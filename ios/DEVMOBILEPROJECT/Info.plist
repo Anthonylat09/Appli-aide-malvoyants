@@ -3,6 +3,9 @@
 <plist version="1.0">
 	<dict>
 		<key>CFBundleDevelopmentRegion</key>
+	   <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	   </true>
+
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleExecutable</key>
 		<string>$(EXECUTABLE_NAME)</string>
@@ -36,6 +39,7 @@
 			</dict>
 		</dict>
 		<key>UILaunchStoryboardName</key>
+
 		<string>SplashScreen</string>
 		<key>UIRequiredDeviceCapabilities</key>
 		<array>
