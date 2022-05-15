@@ -9,14 +9,14 @@ import { ProfilePage } from '../screens/ProfilePage';
 import { Apropos } from '../screens/Apropos';
 import { Parametres } from '../screens/Parametres';
 import CustomDrawer from '../components/CustomDrawer'
-import { Welcome } from '../screens/Welcome';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { SearchResult } from '../screens/SearchResult';
+import { WelcomeForAssistants } from '../screens/WelcomeForAssistants';
 const Drawer = createDrawerNavigator()
 
 const Stack = createStackNavigator();
 let  search= SearchResult
-class DrawerScreen extends React.Component {
+class DrawerForAssistants extends React.Component {
     render() {
     return (
       <>
@@ -41,7 +41,7 @@ class DrawerScreen extends React.Component {
                    drawerIcon: ({color}) => (
                      <Ionicons name = "home-outline" size = {22} color = {color}/>
                    )}}
-        component={Welcome} />
+        component={WelcomeForAssistants} />
 
       <Drawer.Screen
         name="Profil"
@@ -79,4 +79,4 @@ class DrawerScreen extends React.Component {
       
   }
 
-  export {DrawerScreen}
+  export {DrawerForAssistants}
