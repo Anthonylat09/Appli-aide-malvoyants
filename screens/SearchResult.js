@@ -6,6 +6,9 @@ import *as auth from 'firebase/auth'
 import { helpers, NearbyUsers, UpdateEvery, UpdateUserLocation } from "../services/useLocation";
 import {ref,getDatabase,set, onValue,val, child, DataSnapshot} from 'firebase/database'
 import { Background_4 } from "../components/Background_4";
+import UsersComponent from '../components/UsersComponent';
+import CardComponent from "../components/CardComponent";
+
 export const db = getDatabase()
 class SearchResult extends Component{
     constructor(props)
@@ -47,38 +50,16 @@ class SearchResult extends Component{
    
         <View style = {styles.ContainerParent}>
           <Background_4/>
-            <View style = {styles.BackgroundHeader}>
-              <View style = {styles.EyeBarsAndText}>
-                <View style = {styles.FlexBars}>
-                  <TouchableOpacity style = {styles.Bars} 
-                                    onPress={()=> this.props.navigation.openDrawer()}> 
-                    <Icon name="bars" size={32} />
-
-                  </TouchableOpacity>
-                </View>
-
-                <View style = {styles.FlexText}>
-                  <Text style = {{fontSize: 32,
-                                  }}></Text>
-                </View>
-
-                <View style = {styles.FlexEye}>
-                  <Image source = {eye} style = {styles.Eye}/> 
-                </View>
-              </View>
-            
-
-            </View>
+          <HeaderComponent navigation = {this.props.navigation}/>
 
             <View style = {styles.FlexTexteAccueil}>
+              <Text style = {styles.TexteAccueil}>{this.state.listText}</Text>
 
             </View>
            
-            <View style = {styles.FlexAide}>
+            <View style = {styles.FlexListe}>
 
-             
-              
-
+             <UsersComponent/>
             </View>
             
         </View>
@@ -92,48 +73,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   
-  BackgroundHeader:{
-    flex:2,
-    borderWidth: 3
-  },
-
-  EyeBarsAndText: {
-    backgroundColor: '#8659B4',
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'flex-end'
-
-  },
-
-  FlexBars: {
-    flex: 1,
-    flexDirection: 'row',
-
-  },
-
-  FlexEye: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-  },
-
-  Bars :
-  {  
-    width: 40,
-    height: 38,
-  },
-
-  Eye : 
-  {
-    width: 40,
-    height: 38,
-  },
-
-  FlexText: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
 
 
 
@@ -146,13 +85,13 @@ const styles = StyleSheet.create({
   },
 
   TexteAccueil: {
-    height: 200,
-    width: 200
+    fontSize: 24,
+    textAlign:'center'
   },
 
 
 
-  FlexAide:{
+  FlexListe:{
     flex: 12,
     justifyContent: 'center',
     alignItems: 'center',
@@ -161,7 +100,7 @@ const styles = StyleSheet.create({
   },
 
 
-  Aide:{
+  Liste:{
     fontSize: 25
   },
 
