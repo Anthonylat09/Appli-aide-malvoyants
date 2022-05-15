@@ -61,7 +61,7 @@ class DrawerScreen extends React.Component {
 
       <Drawer.Screen
         name="Apropos"
-        options={{ drawerLabel: 'A propos',
+        options={{ drawerLabel: 'À propos',
                    drawerIcon: ({color}) => (
                      <Ionicons name = "md-information-circle-outline" size = {22} color = {color}/>
                    )}}
