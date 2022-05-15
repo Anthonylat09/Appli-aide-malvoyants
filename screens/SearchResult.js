@@ -8,6 +8,7 @@ import {ref,getDatabase,set, onValue,val, child, DataSnapshot} from 'firebase/da
 import { Background_4 } from "../components/Background_4";
 import UsersComponent from '../components/UsersComponent';
 import CardComponent from "../components/CardComponent";
+import HeaderComponent from "../components/HeaderComponent";
 
 export const db = getDatabase()
 class SearchResult extends Component{
@@ -15,8 +16,8 @@ class SearchResult extends Component{
     {
         super(props)
         this.state = {
-          helpers : []
-      
+          helpers : [],
+          listText : "Liste de personnes ayant actuellement besoin d’aide:"
     }
   
   }
